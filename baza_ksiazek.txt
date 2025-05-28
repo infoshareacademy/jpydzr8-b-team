@@ -1,1 +1,200 @@
-001; tomek Kowalski; radomowy tytul, 5
+1;George Orwell;Rok 1984;14
+2;J.K. Rowling;Harry Potter i Kamień Filozoficzny;8
+3;Adam Mickiewicz;Pan Tadeusz;1
+4;Fyodor Dostoevsky;Zbrodnia i kara;11
+5;Henryk Sienkiewicz;Quo Vadis;8
+6;J.R.R. Tolkien;Władca Pierścieni;15
+7;Harper Lee;Zabić drozda;4
+8;Stephen King;Lśnienie;1
+9;Gabriel García Márquez;Sto lat samotności;7
+10;Antoine de Saint-Exupéry;Mały Książę;15
+11;Bolesław Prus;Lalka;2
+12;Umberto Eco;Imię róży;16
+13;Franz Kafka;Proces;5
+14;Michał Bułhakow;Mistrz i Małgorzata;18
+15;Ernest Hemingway;Stary człowiek i morze;13
+16;Dan Brown;Kod Leonarda da Vinci;15
+17;Albert Camus;Dżuma;0
+18;George R.R. Martin;Gra o tron;1
+19;William Shakespeare;Hamlet;4
+20;Oscar Wilde;Portret Doriana Graya;9
+21;Eliza Orzeszkowa;Nad Niemnem;9
+22;Maria Dąbrowska;Noce i dnie;18
+23;James Joyce;Ulisses;14
+24;Tove Jansson;Muminki;2
+25;C.S. Lewis;Lew, czarownica i stara szafa;14
+26;Isaac Asimov;Fundacja;14
+27;Philip K. Dick;Czy androidy marzą o elektrycznych owcach?;5
+28;Aldous Huxley;Nowy wspaniały świat;14
+29;Virginia Woolf;Do latarni morskiej;14
+30;Marcel Proust;W poszukiwaniu straconego czasu;3
+31;Joseph Conrad;Jądro ciemności;16
+32;Autor 32;Tytuł Książki 32;0
+33;Autor 33;Tytuł Książki 33;6
+34;Autor 34;Tytuł Książki 34;2
+35;Autor 35;Tytuł Książki 35;0
+36;Autor 36;Tytuł Książki 36;9
+37;Autor 37;Tytuł Książki 37;6
+38;Autor 38;Tytuł Książki 38;11
+39;Autor 39;Tytuł Książki 39;1
+40;Autor 40;Tytuł Książki 40;6
+41;Autor 41;Tytuł Książki 41;7
+42;Autor 42;Tytuł Książki 42;19
+43;Autor 43;Tytuł Książki 43;6
+44;Autor 44;Tytuł Książki 44;6
+45;Autor 45;Tytuł Książki 45;4
+46;Autor 46;Tytuł Książki 46;14
+47;Autor 47;Tytuł Książki 47;11
+48;Autor 48;Tytuł Książki 48;0
+49;Autor 49;Tytuł Książki 49;2
+50;Autor 50;Tytuł Książki 50;12
+51;Autor 51;Tytuł Książki 51;0
+52;Autor 52;Tytuł Książki 52;6
+53;Autor 53;Tytuł Książki 53;7
+54;Autor 54;Tytuł Książki 54;10
+55;Autor 55;Tytuł Książki 55;2
+56;Autor 56;Tytuł Książki 56;16
+57;Autor 57;Tytuł Książki 57;10
+58;Autor 58;Tytuł Książki 58;3
+59;Autor 59;Tytuł Książki 59;12
+60;Autor 60;Tytuł Książki 60;6
+61;Autor 61;Tytuł Książki 61;18
+62;Autor 62;Tytuł Książki 62;14
+63;Autor 63;Tytuł Książki 63;15
+64;Autor 64;Tytuł Książki 64;3
+65;Autor 65;Tytuł Książki 65;5
+66;Autor 66;Tytuł Książki 66;9
+67;Autor 67;Tytuł Książki 67;20
+68;Autor 68;Tytuł Książki 68;0
+69;Autor 69;Tytuł Książki 69;15
+70;Autor 70;Tytuł Książki 70;0
+71;Autor 71;Tytuł Książki 71;4
+72;Autor 72;Tytuł Książki 72;17
+73;Autor 73;Tytuł Książki 73;17
+74;Autor 74;Tytuł Książki 74;2
+75;Autor 75;Tytuł Książki 75;9
+76;Autor 76;Tytuł Książki 76;17
+77;Autor 77;Tytuł Książki 77;5
+78;Autor 78;Tytuł Książki 78;4
+79;Autor 79;Tytuł Książki 79;19
+80;Autor 80;Tytuł Książki 80;15
+81;Autor 81;Tytuł Książki 81;8
+82;Autor 82;Tytuł Książki 82;13
+83;Autor 83;Tytuł Książki 83;17
+84;Autor 84;Tytuł Książki 84;0
+85;Autor 85;Tytuł Książki 85;15
+86;Autor 86;Tytuł Książki 86;1
+87;Autor 87;Tytuł Książki 87;6
+88;Autor 88;Tytuł Książki 88;5
+89;Autor 89;Tytuł Książki 89;8
+90;Autor 90;Tytuł Książki 90;0
+91;Autor 91;Tytuł Książki 91;13
+92;Autor 92;Tytuł Książki 92;20
+93;Autor 93;Tytuł Książki 93;10
+94;Autor 94;Tytuł Książki 94;6
+95;Autor 95;Tytuł Książki 95;18
+96;Autor 96;Tytuł Książki 96;15
+97;Autor 97;Tytuł Książki 97;1
+98;Autor 98;Tytuł Książki 98;12
+99;Autor 99;Tytuł Książki 99;10
+100;Autor 100;Tytuł Książki 100;18
+101;Autor 101;Tytuł Książki 101;11
+102;Autor 102;Tytuł Książki 102;8
+103;Autor 103;Tytuł Książki 103;14
+104;Autor 104;Tytuł Książki 104;15
+105;Autor 105;Tytuł Książki 105;9
+106;Autor 106;Tytuł Książki 106;5
+107;Autor 107;Tytuł Książki 107;16
+108;Autor 108;Tytuł Książki 108;2
+109;Autor 109;Tytuł Książki 109;5
+110;Autor 110;Tytuł Książki 110;7
+111;Autor 111;Tytuł Książki 111;6
+112;Autor 112;Tytuł Książki 112;19
+113;Autor 113;Tytuł Książki 113;11
+114;Autor 114;Tytuł Książki 114;20
+115;Autor 115;Tytuł Książki 115;20
+116;Autor 116;Tytuł Książki 116;20
+117;Autor 117;Tytuł Książki 117;1
+118;Autor 118;Tytuł Książki 118;16
+119;Autor 119;Tytuł Książki 119;5
+120;Autor 120;Tytuł Książki 120;17
+121;Autor 121;Tytuł Książki 121;17
+122;Autor 122;Tytuł Książki 122;19
+123;Autor 123;Tytuł Książki 123;11
+124;Autor 124;Tytuł Książki 124;11
+125;Autor 125;Tytuł Książki 125;20
+126;Autor 126;Tytuł Książki 126;17
+127;Autor 127;Tytuł Książki 127;14
+128;Autor 128;Tytuł Książki 128;20
+129;Autor 129;Tytuł Książki 129;15
+130;Autor 130;Tytuł Książki 130;5
+131;Autor 131;Tytuł Książki 131;5
+132;Autor 132;Tytuł Książki 132;12
+133;Autor 133;Tytuł Książki 133;20
+134;Autor 134;Tytuł Książki 134;3
+135;Autor 135;Tytuł Książki 135;6
+136;Autor 136;Tytuł Książki 136;16
+137;Autor 137;Tytuł Książki 137;10
+138;Autor 138;Tytuł Książki 138;19
+139;Autor 139;Tytuł Książki 139;17
+140;Autor 140;Tytuł Książki 140;15
+141;Autor 141;Tytuł Książki 141;4
+142;Autor 142;Tytuł Książki 142;13
+143;Autor 143;Tytuł Książki 143;19
+144;Autor 144;Tytuł Książki 144;18
+145;Autor 145;Tytuł Książki 145;6
+146;Autor 146;Tytuł Książki 146;19
+147;Autor 147;Tytuł Książki 147;2
+148;Autor 148;Tytuł Książki 148;5
+149;Autor 149;Tytuł Książki 149;14
+150;Autor 150;Tytuł Książki 150;15
+151;Autor 151;Tytuł Książki 151;11
+152;Autor 152;Tytuł Książki 152;1
+153;Autor 153;Tytuł Książki 153;12
+154;Autor 154;Tytuł Książki 154;4
+155;Autor 155;Tytuł Książki 155;20
+156;Autor 156;Tytuł Książki 156;15
+157;Autor 157;Tytuł Książki 157;12
+158;Autor 158;Tytuł Książki 158;4
+159;Autor 159;Tytuł Książki 159;0
+160;Autor 160;Tytuł Książki 160;15
+161;Autor 161;Tytuł Książki 161;20
+162;Autor 162;Tytuł Książki 162;17
+163;Autor 163;Tytuł Książki 163;8
+164;Autor 164;Tytuł Książki 164;4
+165;Autor 165;Tytuł Książki 165;8
+166;Autor 166;Tytuł Książki 166;1
+167;Autor 167;Tytuł Książki 167;14
+168;Autor 168;Tytuł Książki 168;20
+169;Autor 169;Tytuł Książki 169;8
+170;Autor 170;Tytuł Książki 170;17
+171;Autor 171;Tytuł Książki 171;13
+172;Autor 172;Tytuł Książki 172;18
+173;Autor 173;Tytuł Książki 173;6
+174;Autor 174;Tytuł Książki 174;10
+175;Autor 175;Tytuł Książki 175;19
+176;Autor 176;Tytuł Książki 176;19
+177;Autor 177;Tytuł Książki 177;14
+178;Autor 178;Tytuł Książki 178;15
+179;Autor 179;Tytuł Książki 179;12
+180;Autor 180;Tytuł Książki 180;5
+181;Autor 181;Tytuł Książki 181;15
+182;Autor 182;Tytuł Książki 182;16
+183;Autor 183;Tytuł Książki 183;13
+184;Autor 184;Tytuł Książki 184;14
+185;Autor 185;Tytuł Książki 185;8
+186;Autor 186;Tytuł Książki 186;19
+187;Autor 187;Tytuł Książki 187;15
+188;Autor 188;Tytuł Książki 188;11
+189;Autor 189;Tytuł Książki 189;0
+190;Autor 190;Tytuł Książki 190;18
+191;Autor 191;Tytuł Książki 191;13
+192;Autor 192;Tytuł Książki 192;0
+193;Autor 193;Tytuł Książki 193;3
+194;Autor 194;Tytuł Książki 194;10
+195;Autor 195;Tytuł Książki 195;4
+196;Autor 196;Tytuł Książki 196;15
+197;Autor 197;Tytuł Książki 197;8
+198;Autor 198;Tytuł Książki 198;18
+199;Autor 199;Tytuł Książki 199;1
+200;Autor 200;Tytuł Książki 200;3

@@ -1,21 +1,11 @@
-def waliduj_login_haslo(login, haslo, nazwa_pliku):
-        try:
-            with open(nazwa_pliku, 'r', encoding='utf-8') as plik:
-                for linia in plik:
-                    dane = linia.strip().split(';')
-                    if dane[5] == login and dane[6] == haslo:
-                        return True
-            return False
-        except FileNotFoundError:
-            print(f"Plik {nazwa_pliku} nie został znaleziony.")
-            return False
-        
+from waliduj_login_haslo import waliduj_login_haslo
 
 def logowanie(nazwa_pliku):
-    #from main import menu
+    
     print("Wpisz 'q' aby wrócić do menu głównego.")
 
     while True:
+        zalogowany = False
         login = input("Prosze podać login: ")
         if login == 'q':
             break
@@ -24,9 +14,10 @@ def logowanie(nazwa_pliku):
             break
         if waliduj_login_haslo(login, haslo, nazwa_pliku="baza_uzytkownikow.txt"):
             print(f"Zalogowano uytkownika po login:{login} i haslo:{haslo}")
-            break
+            zalogowany = True
+            if zalogowany:
+                break
         else:
             print("Błędny login lub haslo - spróbuj ponownie.")
-            
+    return zalogowany      
         
-# logowanie("baza_uzytkownikow.txt")

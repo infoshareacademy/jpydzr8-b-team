@@ -1,0 +1,2 @@
+002;a;a;100;a@;dupa;a;sadf
+004;GREG;GREGory;55;jacek@o2.pl;admin;admin22;sport

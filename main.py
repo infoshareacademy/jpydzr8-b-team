@@ -1,7 +1,8 @@
 import pandas as pd
 from rejestracja import *
-from logowanie import *
 from wypozycz_ksiazke import wypozycz_ksiazke, wczytanie_bazy_ksiazek
+from menu_po_zalogowaniu import menu_po_zalogowaniu
+from logowanie import logowanie
 
 def menu():
     while True:
@@ -12,8 +13,9 @@ def menu():
         print("4. Wyjdz")
         wybor = input("Wybierz opcje (1-4): ")
         if wybor == "1":
-            logowanie("oop/baza_uzytkownikow.txt")
-            wypozycz_ksiazke()
+            id_uzytkownika = logowanie("baza_uzytkownikow.txt")
+            if id_uzytkownika:
+                menu_po_zalogowaniu(id_uzytkownika)
         elif wybor == "2":
             rejestracja("baza_uzytkownikow.txt")
         elif wybor == "3":
@@ -23,5 +25,7 @@ def menu():
             break
         else:
             print("Nieprawidlowy wybor, sprobuj ponownie.")
-menu()
 
+
+if "__name__" == "__main__":
+    menu()

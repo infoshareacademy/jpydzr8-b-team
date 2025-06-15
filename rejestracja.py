@@ -1,6 +1,6 @@
 
 from klasa_uzytkownik import Uzytkownik, numer_karty
-    
+from waliduj_email import waliduj_email
 def rejestracja(nazwa_pliku):
     istniejace_loginy = set()
     try:
@@ -45,9 +45,13 @@ def rejestracja(nazwa_pliku):
 
     while True:
         email = input("Proszę podać email: ").strip()
-        if '@' and "." in email:
-            break
-        print("Niepoprawny format - spróbuj ponownie.")
+        if '@' not in email or "." not in email:
+            print("Niepoprawny format - spróbuj ponownie.")
+            continue
+        if waliduj_email(email, "baza_uzytkownikow.txt"):
+            print("Ten adres e-mail już istnieje w bazie.")
+            continue
+        break
 
 
     zainteresowania = input("Proszę podać zainteresowania: ")

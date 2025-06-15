@@ -1,5 +1,5 @@
 class Uzytkownik:
-    def __init__(self, numer, imie, nazwisko, wiek, email, login, haslo, zainteresowania):
+    def __init__(self, numer, imie, nazwisko, wiek, email, login, haslo, zainteresowania, active =True):
         self.numer = numer
         self.imie = imie
         self.nazwisko = nazwisko
@@ -8,11 +8,12 @@ class Uzytkownik:
         self.login = login
         self.haslo = haslo
         self.zainteresowania = zainteresowania
+        self.active = active
 
     def zapisz_do_pliku(self, nazwa_pliku):
         with open(nazwa_pliku, 'a', encoding='utf-8') as plik:
             plik.write(f"{self.numer:03d};{self.imie};{self.nazwisko};{self.wiek};{self.email};"
-                       f"{self.login};{self.haslo};{self.zainteresowania}\n")
+                       f"{self.login};{self.haslo};{self.zainteresowania};{self.active}\n")
 
 def numer_karty(nazwa_pliku):
     try:

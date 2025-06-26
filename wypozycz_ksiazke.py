@@ -12,7 +12,7 @@ def wczytanie_bazy_ksiazek():
     return df
 
 def wypozycz_ksiazke():
-    if logowanie:
+    if logowanie():
         print('Jesteś zalogowany')
         df_new = wczytanie_bazy_ksiazek()
         print(df_new)

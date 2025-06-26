@@ -1,6 +1,6 @@
-
 from klasa_uzytkownik import Uzytkownik, numer_karty
 from waliduj_email import waliduj_email
+
 def rejestracja(nazwa_pliku):
     istniejace_loginy = set()
     try:

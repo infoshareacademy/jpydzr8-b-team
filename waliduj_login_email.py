@@ -1,3 +1,4 @@
+
 def waliduj_login_email(login, email, nazwa_pliku):
     try:
         with open(nazwa_pliku, 'r', encoding='utf-8') as plik:

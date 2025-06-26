@@ -21,10 +21,9 @@ class ZmianaDanych:
         self.__wartosc_elementu = None
         self.__stara_wartosc_elementu = None
     def edycja_danych_uzytkownika(self, id: str = ''):
-        ''' Główna funkcja zbierająca informacje
-        do atrybutów obiektu, poczym z nich następuje
-        zapis zmian w rekordzie danych, i aktualizacja
-        bazy danych w txt.
+        ''' Główna funkcja zbierająca informacje do atrybutów.
+        To z nich następuje zapis zmian w rekordzie danych, i
+        aktualizacja bazy danych w txt.
         :return: None
         '''
         # prewencyjnie 'str'
@@ -87,7 +86,7 @@ class ZmianaDanych:
                 self.__pozycja_elementu = element
                 return True
     def __proceduj_wybor(self) -> bool:
-        # wyrejestrowanie się wymaga osobnej ścieżki
+        # wyodrębniamy 'wyrejestrowanie się' bo wymaga osobnej ścieżki postępowania
         if not self.__pozycja_elementu == 8:
             # odczytujemy wartość elementu przed jego zmianą
             self.__stara_wartosc_elementu = ZmianaDanych.__LST_BAZA[self.__indeks_rekordu][self.__pozycja_elementu]
@@ -120,7 +119,7 @@ class ZmianaDanych:
                     # zapisz
                     self.__wartosc_elementu = nowa_wartosc
                     return True
-                # zainteresowania - mogą być puste!
+                # zainteresowania - mogą być puste
                 elif self.__pozycja_elementu == 7:
                     self.__wartosc_elementu = nowa_wartosc
                     return True
@@ -142,7 +141,6 @@ class ZmianaDanych:
                 x = self.__wyrejestruj()
                 if x:
                     self.komunikat('Twoje dane zostały usunięte z ewidencji.', monit=False)
-                    # wyjście z pętli
                     return False
                 self.komunikat('Jest powód dla którego w tej chwili dane nie mogły być usunięte. Odezwiemy się.', monit=True)
                 return False
@@ -216,8 +214,8 @@ class ZmianaDanych:
                     key = 'Wypowiedzenie umowy'
                 tekst += f'\n\t{value} = {key}'
         tekst += linia
-        tekst += (f"\n\tWybierz 1 do 8, albo '{ZmianaDanych.__ZNAK_REZYGNACJA}'"
-                  f"\n\taby wrócić do Menu Głównego: ")
+        tekst += (f"\n\tWybierz 1 do 8, lub '{ZmianaDanych.__ZNAK_REZYGNACJA}'"
+                  f"aby wrócić do Menu Głównego: ")
         return input(tekst)
     @classmethod
     def __aktualizacja_bazy_txt(cls):
@@ -227,5 +225,3 @@ class ZmianaDanych:
                     f.write(';'.join([str(element) for element in rekord]) + '\n')
             else:
                 f.write(';'.join([str(element) for element in cls.__LST_BAZA]) + '\n')
-# CALL
-umowa = ZmianaDanych().edycja_danych_uzytkownika()

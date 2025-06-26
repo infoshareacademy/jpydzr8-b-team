@@ -1,3 +1,4 @@
+
 class Wypowiedzenie:
     def __init__(self, id: str):
         self.__id = str(id).strip()
@@ -18,12 +19,15 @@ class Wypowiedzenie:
         return False
 
     def __otworz_baze(self):
+        '''Pobiera dane do zmiennej obiektowej .__baza'''
         with open(self.__registered, 'r') as f:
             lines = f.readlines()
             self.__baza = [(line.strip('\n').split(';')) for line in lines]
 
     def __przenies_i_kasuj(self):
+        '''Wyodrębnij rekord, ustaw flagę, i usuń.'''
         self.__rekord_kasowany = self.__baza[self.__indeks_kasowany]
+        self.__rekord_kasowany[8] = False
         self.__dopisz_do_wyrejestrowanych()
         self.__baza.pop(self.__indeks_kasowany)
 
@@ -36,18 +40,19 @@ class Wypowiedzenie:
                 f.write(';'.join([str(element) for element in self.__baza]) + '\n')
 
     def __zwroc_indeks_rekordu(self) -> int | None:
-        # pobiera ID każdego rekordu do osobnej listy
+        ''' Spisuje osobną listę wszystkich IDs z bazy użytkowników.
+        Zwraca index listy dla ID jeśli występuje, albo None gdy brak.
+        ID pobiera z atrybutów instancji klasy 'self.__id'''
         lista = [line[0] for line in self.__baza]
-        # zwraca indeks dla ID, jeśli występuje
         try:
             return lista.index(self.__id)
         except ValueError:
             return None
 
     def __dopisz_do_wyrejestrowanych(self):
+        '''Dopisuje rekord na końcu pliku 'baza_wyrejestrowani.txt.
+        Jeśli plik nie istnieje, to zostanie utworzony wg nazwy w
+        zmiennej '.__deregistered', a rekord zostanie zapisany.'''
         with open(self.__deregistered, 'a') as f:
             if self.__rekord_kasowany:
                 f.write(';'.join([str(element) for element in self.__rekord_kasowany]) + '\n')
-
-# umowa = Wypowiedzenie(1024).deaktywuj()
-# print(umowa)

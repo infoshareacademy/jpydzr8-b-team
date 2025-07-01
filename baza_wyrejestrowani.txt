@@ -1,3 +1,9 @@
 002;a;a;100;a@;dupa;a;sadf
 004;GREG;GREGory;55;jacek@o2.pl;admin;admin22;sport
 024;zo;z;20;z@.;z;z;dramat;True
+026;lohin2;nazwisko2;45;email@.;login;haslo;nowe zainteresowania;False
+026;wsx;wsx;55;d;login;haslo;d;False
+025;Olga;Wicher;30;wicher@olga.org;olga1;wicher1;prawo, edukacja;False
+025;Olga;Wicher;30;wicher@olga.org;login;haslo;prawo, edukacja;False
+025;Olga;Wicher;30;wicher@olga.org;login;haslo;prawo, edukacja;False
+025;Olga;Wicher;30;wicher@olga.org;login;haslo;prawo, edukacja;False

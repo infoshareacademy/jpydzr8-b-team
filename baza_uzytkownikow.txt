@@ -18,5 +18,5 @@
 021;qaz;qaz;44;af.@;qaz;qaz;asd;True
 022;wsx;wsx;55;d;wsx;wsx;d;True
 023;zz;zz;77;.@;zz;zz;tede;True
-024;z;z;20;z@.;z;z;dramat;True
-025;Olga;Wicher;30;wicher@olga.org;olga1;wicher1;prawo, edukacja;True
+024;z;z;20;z@.;z;s;dramat;True
+

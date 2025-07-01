@@ -11,50 +11,64 @@ def rejestracja(nazwa_pliku):
                     istniejace_loginy.add(dane[5])
     except FileNotFoundError:
         pass
-
+    print("Proszę uzupelnić dane do rejestracji. Wpisz 'q', aby wrócić do menu głównego.")
     while True:
-        login = input("Proszę podać login: ").strip()
+        login = input("[rejestracja] Proszę podać login: ").strip()
+        if login == 'q':
+            return
         if login in istniejace_loginy:
-            print("Ten login już istnieje. Wybierz inny.")
+            print("[rejestracja] Ten login już istnieje. Wybierz inny.")
         else:
             break
 
     while True:
-        haslo = input("Proszę podać hasło: ")
-        if haslo == input("Proszę powtórzyć hasło: "):
+        haslo = input("[rejestracja] Proszę podać hasło: ")
+        if haslo == "q":
+            return
+        if haslo == input("[rejestracja] Proszę powtórzyć hasło: "):
             break
-        print("Podane hasła się różnią. Spróbuj jeszcze raz.")
+        print("[rejestracja] Podane hasła się różnią. Spróbuj jeszcze raz.")
 
     while True:
-        imie = input("Proszę podać imię: ").strip()
+        imie = input("[rejestracja] Proszę podać imię: ").strip()
+        if imie == 'q':
+            return
         if imie.isalpha():
             break
-        print("Niepoprawny format - spróbuj ponownie.")
+        print("[rejestracja] Niepoprawny format - spróbuj ponownie.")
 
     while True:
-        nazwisko = input("Proszę podać nazwisko: ").strip()
+        nazwisko = input("[rejestracja] Proszę podać nazwisko: ").strip()
+        if nazwisko == 'q':
+            return
         if nazwisko.isalpha():
             break
-        print("Niepoprawny format - spróbuj ponownie.")
+        print("[rejestracja] Niepoprawny format - spróbuj ponownie.")
 
     while True:
-        wiek = input("Proszę podać wiek: ").strip()
+        wiek = input("[rejestracja] Proszę podać wiek: ").strip()
+        if wiek == 'q':
+            return
         if wiek.isdigit() and 10 <= int(wiek) <= 100:
             break
-        print("Niepoprawny format - spróbuj ponownie.")
+        print("[rejestracja] Niepoprawny format - spróbuj ponownie.")
 
     while True:
         email = input("Proszę podać email: ").strip()
+        if email == 'q':
+            return
         if '@' not in email or "." not in email:
-            print("Niepoprawny format - spróbuj ponownie.")
+            print("[rejestracja] Niepoprawny format - spróbuj ponownie.")
             continue
         if waliduj_email(email, "baza_uzytkownikow.txt"):
-            print("Ten adres e-mail już istnieje w bazie.")
+            print("[rejestracja] Ten adres e-mail już istnieje w bazie.")
             continue
         break
-
-
-    zainteresowania = input("Proszę podać zainteresowania: ")
+  
+    zainteresowania = input("[rejestracja] Proszę podać zainteresowania: ")
+    if zainteresowania == 'q':
+        return
+            
     numer =  numer_karty(nazwa_pliku)
 
 
@@ -71,5 +85,3 @@ def rejestracja(nazwa_pliku):
 
     u.zapisz_do_pliku(nazwa_pliku)
     print(f"Użytkownik {login} został zarejestrowany z numerem karty {numer:03d}.")
-
-# rejestracja("/Users/jacek.c/desktop/python_project/oop/uzytkownicy2.txt")

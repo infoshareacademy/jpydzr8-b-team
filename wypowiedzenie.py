@@ -27,6 +27,7 @@ class Wypowiedzenie:
     def __przenies_i_kasuj(self):
         '''Wyodrębnij rekord, ustaw flagę, i usuń.'''
         self.__rekord_kasowany = self.__baza[self.__indeks_kasowany]
+        print(self.__rekord_kasowany)
         self.__rekord_kasowany[8] = False
         self.__dopisz_do_wyrejestrowanych()
         self.__baza.pop(self.__indeks_kasowany)

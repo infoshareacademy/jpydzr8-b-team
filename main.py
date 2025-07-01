@@ -9,17 +9,10 @@ def menu():
         print("1. Zaloguj się")
         print("2. Zaloż konto")
         print("3. Biblioteka")
-        print("4. Wyjdź")
+        print("4. Wyjdź z aplikacji")
         wybor = input("Wybierz opcję (1-4): ")
         if wybor == "1":
             id_uzytkownika = logowanie("baza_uzytkownikow.txt")
-
-            # zwraca True kiedy hasło było zresetowane,
-            # więc wymagamy ponownego zalogowania się.
-            # False oznacza logowanie bez resetowania.
-            if id_uzytkownika == True:
-                continue
-
             if id_uzytkownika:
                 menu_po_zalogowaniu(id_uzytkownika)
         elif wybor == "2":

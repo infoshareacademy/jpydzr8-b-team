@@ -5,12 +5,14 @@ def menu_po_zalogowaniu(id_uzytkownika):
     while True:
         print("1. Wypożycz książkę.")
         print("2. Zmiana danych.")
-        print("3. Powrót do Menu Głównego.")
+        print("3. Wyloguj się.")
         wybor2 = input("Wybierz opcje (1-3): ")
         if wybor2 == "1":
             wypozycz_ksiazke()
         elif wybor2 == "2":
-            ZmianaDanych().edycja_danych_uzytkownika(id_uzytkownika)
+            x = ZmianaDanych().edycja_danych_uzytkownika(id_uzytkownika)
+            if x == "Wyloguj":
+                break
         elif wybor2 == "3":
             break
         else:

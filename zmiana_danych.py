@@ -45,8 +45,11 @@ class ZmianaDanych:
         if not self.__menu_wybierz_dane():
             return False
         # zebranie danych
-        if not self.__proceduj_wybor():
+        x = self.__proceduj_wybor()
+        if not x:
             return False
+        elif x == "Wyloguj":
+            return x
         # próba zmiany w .__LST_BAZA
         if not self.__zmiana():
             self.komunikat('Coś poszło nie tak. Błąd został zarejestrowany. Spróbuj ponownie innym razem.')
@@ -54,7 +57,7 @@ class ZmianaDanych:
         # rejestracja zmian w bazie docelowej
         self.__aktualizacja_bazy_txt()
         self.komunikat('Zmiany zostały wprowadzone.', monit=False)
-    #
+    
     def __menu_wybierz_dane(self) -> bool:
         ''' User decyduje który 'element' danych zmienia,
         albo rezygnuje i wraca do Menu Głównego. Funkcja
@@ -85,8 +88,9 @@ class ZmianaDanych:
                 # odpowiedź jest w zakresie obsługi, więc zapamiętujemy element rekordu
                 self.__pozycja_elementu = element
                 return True
-    def __proceduj_wybor(self) -> bool:
-        # wyodrębniamy 'wyrejestrowanie się' bo wymaga osobnej ścieżki postępowania
+    def __proceduj_wybor(self) -> bool | str:
+        # Wyodrębniamy 'wyrejestrowanie się' bo wymaga osobnej ścieżki postępowania
+        
         if not self.__pozycja_elementu == 8:
             # odczytujemy wartość elementu przed jego zmianą
             self.__stara_wartosc_elementu = ZmianaDanych.__LST_BAZA[self.__indeks_rekordu][self.__pozycja_elementu]
@@ -94,11 +98,10 @@ class ZmianaDanych:
             nazwa_klucza = list(ZmianaDanych.__INDEKSY_REKORDU.keys())[self.__pozycja_elementu]
             while True:
                 # zapytaj o nową wartość
-                nowa_wartosc = input(f"\n\tPodaj nowe dane <{nazwa_klucza}>, "
+                nowa_wartosc = input(f"\nPodaj nowe dane <{nazwa_klucza}>, "
                                      f"'q' rezygnacja: ").strip()
                 # rezygnacja
                 if nowa_wartosc == ZmianaDanych.__ZNAK_REZYGNACJA:
-                    # return False
                     break
                 # hasło
                 if self.__pozycja_elementu == 6:
@@ -107,7 +110,7 @@ class ZmianaDanych:
                         self.komunikat('To jest aktualne hasło - podaj nowe.')
                         continue #return False
                     nowa_wartosc_powtorzona = input(
-                                                  f"\n\tPowtórz nowe <haslo>, "
+                                                  f"\nPowtórz nowe <haslo>, "
                                                   f"'q' rezygnacja: "
                                                   ).strip()
                     if nowa_wartosc_powtorzona == ZmianaDanych.__ZNAK_REZYGNACJA:
@@ -141,7 +144,7 @@ class ZmianaDanych:
                 x = self.__wyrejestruj()
                 if x:
                     self.komunikat('Twoje dane zostały usunięte z ewidencji.', monit=False)
-                    return False
+                    return "Wyloguj"
                 self.komunikat('Jest powód dla którego w tej chwili dane nie mogły być usunięte. Odezwiemy się.', monit=True)
                 return False
     #
@@ -180,9 +183,9 @@ class ZmianaDanych:
             return None
         if monit:
             tytul = f'{glosnik}Ups..'
-            print(f'\n\t{tytul}\n\t{jednowiersz}\n')
+            print(f'\n{tytul}\n{jednowiersz}\n')
         else:
-            print(f'\n\t{glosnik}{jednowiersz}\n')
+            print(f'\n{glosnik}{jednowiersz}\n')
     def __identyczne(self, pierwszy: str, drugi: str) -> bool:
         ''' Zwraca logiczną wartość porównania dwóch argumentów "str" '''
         if isinstance(pierwszy, str) and isinstance(drugi, str):
@@ -205,17 +208,17 @@ class ZmianaDanych:
         :return: number|text: both formatted as 'str'
         '''
         tekst = f'Menu "Dane czytelnika"'
-        linia = f'\n\t{'-' * len(tekst)}'
-        tekst = f'\n\t{tekst}'
+        linia = f'\n{'-' * len(tekst)}'
+        tekst = f'\n{tekst}'
         tekst += linia
         for key, value in cls.__INDEKSY_REKORDU.items():
             if value in range(1, 9, 1):
                 if value == 8:
                     key = 'Wypowiedzenie umowy'
-                tekst += f'\n\t{value} = {key}'
+                tekst += f'\n{value} = {key}'
         tekst += linia
-        tekst += (f"\n\tWybierz 1 do 8, lub '{ZmianaDanych.__ZNAK_REZYGNACJA}'"
-                  f"aby wrócić do Menu Głównego: ")
+        tekst += (f"\nWybierz 1-8, lub '{ZmianaDanych.__ZNAK_REZYGNACJA}',"
+                  f" aby wrócić do Menu Głównego: ")
         return input(tekst)
     @classmethod
     def __aktualizacja_bazy_txt(cls):

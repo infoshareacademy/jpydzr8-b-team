@@ -11,7 +11,7 @@ def reset_hasla(nazwa_pliku) -> bool:
     '''
     zgodnosc: bool = False
 
-    print("Zawsze możesz zrezygnować i wrócić do Menu - 'q'")
+    print("[reset] Aby wrócić do menu głównego wpisz 'q'")
 
     while True:
 
@@ -23,16 +23,16 @@ def reset_hasla(nazwa_pliku) -> bool:
                 break
             zgodnosc = waliduj_login_email(login, email, nazwa_pliku="baza_uzytkownikow.txt")
             if not zgodnosc:
-                print("Błędny login lub email - spróbuj ponownie.")
+                print("[reset] Błędny login lub email - spróbuj ponownie.")
                 continue
 
-        nowe_haslo = input("Teraz podaj nowe hasło: ")
-        nowe_haslo_pow = input('Powtórz nowe hasło: ')
+        nowe_haslo = input("[reset] Podaj nowe hasło: ")
+        nowe_haslo_pow = input('[reset] Powtórz nowe hasło: ')
         if 'q' in (nowe_haslo, nowe_haslo_pow):
             break
 
         if nowe_haslo != nowe_haslo_pow:
-            print("Hasła różnią się. Spróbuj ponownie.")
+            print("[reset] Hasła różnią się. Spróbuj ponownie.")
             continue
 
         with open(nazwa_pliku, 'r', encoding='utf-8') as plik:
@@ -46,8 +46,9 @@ def reset_hasla(nazwa_pliku) -> bool:
                 else:
                     linia = ';'.join(dane) + '\n'
                 plik.write(linia)
-        print("Hasło zostało zresetowane pomyślnie.")
+        print("[reset] Hasło zostało zresetowane pomyślnie.\n[reset] Zaloguj się ponownie.\n[reset] 'q' - wyjście do menu głównego.")
         return True
+    
 
 
 def __pobrane_do_weryfikacji() -> tuple[str | None, str | None]:
@@ -57,10 +58,10 @@ def __pobrane_do_weryfikacji() -> tuple[str | None, str | None]:
     login = None
     email = None
     while a:
-        login = input("WER Proszę podać login: ")
+        login = input("[reset] Proszę podać login: ")
         if login == 'q':
             break
-        email = input("WER Proszę podać email: ")
+        email = input("[reset] Proszę podać email: ")
         if email == 'q':
             break
         a = False

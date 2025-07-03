@@ -1,18 +1,11 @@
-from wypozycz_ksiazke import wypozycz_ksiazke
 import os
 
-
-ID = '001'
-imie = 'Adam'
-nazwisko = 'Talaga'
-lista_wypozyczonych_ksiazek = wypozycz_ksiazke()
-karta_uzytkowanika_sciezka = f'{ID}_{imie}_{nazwisko}.txt'
-
-
-def karta_czytelnika(ID, karta_uzytkowanika_sciezka, lista_wypozyczonych_ksiazek):
-
-    mode = 'a' if os.path.exists(karta_uzytkowanika_sciezka) else 'w'
-    with open(karta_uzytkowanika_sciezka, mode) as f:
-        f.write(lista_wypozyczonych_ksiazek)
-
-karta_czytelnika(ID, karta_uzytkowanika_sciezka, lista_wypozyczonych_ksiazek)
+def karta_czytelnika(u_id, lista_wypozyczonych_ksiazek):
+    czytelnia = 'czytelnia/' + u_id + '.txt'
+    mode = 'a' if os.path.exists(czytelnia) else 'w'
+    with open(czytelnia, mode) as f:
+        if isinstance(lista_wypozyczonych_ksiazek[0], tuple):
+            for i, rekord in enumerate(lista_wypozyczonych_ksiazek):
+                f.write(';'.join([str(element) for element in rekord]) + '\n')
+        else:
+            f.write(';'.join([str(element) for element in lista_wypozyczonych_ksiazek]) + '\n')

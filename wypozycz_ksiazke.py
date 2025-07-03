@@ -1,5 +1,6 @@
 import pandas as pd
 import datetime as datetime
+from karta_czytelnika import karta_czytelnika
 
 
 plik = 'baza_ksiazek.txt'
@@ -13,7 +14,7 @@ def wczytanie_bazy_ksiazek():
     pd.set_option('display.width', None)
     return df
 
-def wypozycz_ksiazke():
+def wypozycz_ksiazke(u_id):
     # if logowanie():
     #     print('Jesteś zalogowany')
     df_new = wczytanie_bazy_ksiazek()
@@ -59,9 +60,10 @@ def wypozycz_ksiazke():
                   f'data oddania: {data_oddania_str}')
 
     df_new.to_csv('baza_ksiazek.txt', index=False, header=False, sep=';')
-
+    karta_czytelnika(u_id, wypozyczone)
     print('\nPodsumowanie wypożyczeń:')
     for ksiazka in wypozyczone:
         print(f'Tytuł: {ksiazka[0]}, Autor: {ksiazka[1]}, Wypożyczono: {ksiazka[2]}, Oddać do: {ksiazka[3]}')
 
     return wypozyczone
+

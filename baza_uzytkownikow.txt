@@ -1,22 +1,5 @@
-001;imiee;nazwiskoo;3;a@asd;login2;55;aas3
-003;asdcasdcasdcasdc;asdcasdcasdcasdcasdcasdcasdca;23;asdcasdc@;asdgfasdfghsdafh;a;asdfasdf
-005;jacek;cisz;32;jac@emain;jacek1;jacek;asdf
-006;a;a;23;a@;login1;a;efd
-007;a;a;22;c;log;p;asdf
-008;t;t;55;@.;jacekkkk;e;asd
-009;d;asdfdf;55;@.asdf;b;d;wef
-010;Bogdan;Boguszewski;78;bogdek@interia.pl;botter;1234;komputery
-011;nowyy;yywon;40;nowy@email.com;nowy;a;test@interia.pl
-012;Grzegorz;Byk;44;grzbyk@interia.pl;trudny_login;trudne_haslo;silownia
-013;Estera;Ciszewska;31;ezymeka@gmail.com;aretse;aklemyz;literatura, wykonczenie wnetrz
-014;asdf;asdf;12;asdfasdf@iansdfasd.pl;asdf;a;asdf
-016;khg;jkhgjhk;66;@.;p;p;jhgf
-017;werg;sdtgstv;55;@.;y;y;dfghj
-018;t;t;66;@.;t;t;sdrg
-019;Remigiusz;Programista;40;@.;adminadmin;a;python
-020;f;f;55;@.;f;f;f;True
-021;qaz;qaz;44;af.@;qaz;qaz;asd;True
-022;wsx;wsx;55;d;wsx;wsx;d;True
-023;zz;zz;77;.@;zz;zz;tede;True
-024;z;z;20;z@.;z;s;dramat;True
+001;Jacek;Ciszewski;18;jac.ciszewski@email.com;a1;a1;sex
+003;Remigiusz;Warpas;18;rem.warpas@email.com;a2;a2;fizyka
+005;Katarzyna;Lukaszczyk;18;kat.lukaszczyk@email.com;a3;a3;grafika
+006;Adam;Talaga;18;ada.talaga@email.com;a4;a4;geologia
 

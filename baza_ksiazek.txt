@@ -1,5 +1,5 @@
-1;George Orwell;Rok 1984;13
-2;J.K. Rowling;Harry Potter i Kamień Filozoficzny;8
+1;George Orwell;Rok 1984;12
+2;J.K. Rowling;Harry Potter i Kamień Filozoficzny;7
 3;Adam Mickiewicz;Pan Tadeusz;1
 4;Fyodor Dostoevsky;Zbrodnia i kara;11
 5;Henryk Sienkiewicz;Quo Vadis;8
@@ -8,24 +8,24 @@
 8;Stephen King;Lśnienie;1
 9;Gabriel García Márquez;Sto lat samotności;7
 10;Antoine de Saint-Exupéry;Mały Książę;15
-11;Bolesław Prus;Lalka;2
+11;Bolesław Prus;Lalka;1
 12;Umberto Eco;Imię róży;15
 13;Franz Kafka;Proces;4
 14;Michał Bułhakow;Mistrz i Małgorzata;17
 15;Ernest Hemingway;Stary człowiek i morze;13
 16;Dan Brown;Kod Leonarda da Vinci;15
 17;Albert Camus;Dżuma;0
-18;George R.R. Martin;Gra o tron;1
-19;William Shakespeare;Hamlet;4
+18;George R.R. Martin;Gra o tron;0
+19;William Shakespeare;Hamlet;2
 20;Oscar Wilde;Portret Doriana Graya;5
-21;Eliza Orzeszkowa;Nad Niemnem;5
-22;Maria Dąbrowska;Noce i dnie;15
+21;Eliza Orzeszkowa;Nad Niemnem;3
+22;Maria Dąbrowska;Noce i dnie;14
 23;James Joyce;Ulisses;9
-24;Tove Jansson;Muminki;2
+24;Tove Jansson;Muminki;1
 25;C.S. Lewis;Lew, czarownica i stara szafa;11
 26;Isaac Asimov;Fundacja;10
 27;Philip K. Dick;Czy androidy marzą o elektrycznych owcach?;5
-28;Aldous Huxley;Nowy wspaniały świat;13
+28;Aldous Huxley;Nowy wspaniały świat;12
 29;Virginia Woolf;Do latarni morskiej;12
 30;Marcel Proust;W poszukiwaniu straconego czasu;3
-31;Joseph Conrad;Jądro ciemności;5
+31;Joseph Conrad;Jądro ciemności;4

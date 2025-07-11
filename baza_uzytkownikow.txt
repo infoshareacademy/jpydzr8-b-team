@@ -1,5 +1,7 @@
-001;Jacek;Ciszewski;18;jac.ciszewski@email.com;a1;a1;sex
-003;Remigiusz;Warpas;18;rem.warpas@email.com;a2;a2;fizyka
-005;Katarzyna;Lukaszczyk;18;kat.lukaszczyk@email.com;a3;a3;grafika
-006;Adam;Talaga;18;ada.talaga@email.com;a4;a4;geologia
-
+001;Zosia;Ciszewski;18;jac.ciszewski@email.com;a1;a1;sex;True
+002;Remigiusz;Warpas;18;rem.warpas@email.com;a2;a2;fizyka;True
+003;Katarzyna;Lukaszczyk;18;kat.lukaszczyk@email.com;a3;a3;grafika;True
+004;Adam;Talaga;18;ada.talaga@email.com;a4;a4;geologia;True
+005;Filip;Nowak;65;fil.nowak@email.com;a5;a5;jazz;True
+006;Jakub;Jaroszewski;54;@email.com;a6;a6;historia;True
+007;Adam;Nowicki;57;kk@email.com;a7;a7;sport;True

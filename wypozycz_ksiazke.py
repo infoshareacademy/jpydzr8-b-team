@@ -54,16 +54,16 @@ def wypozycz_ksiazke(u_id):
             data_oddania_str = data_oddania.isoformat()
             tytul = df_new.at[index_wypozyczonej_ksiazki, 'Tytuł']
             autor = df_new.at[index_wypozyczonej_ksiazki, 'Autor']
-            wypozyczone.append((tytul, autor, data_wypozyczenia_str, data_oddania_str))
-            print(f'Wypożyczono książkę: {tytul}, {autor}, '
-                  f'data wypożyczenia: {data_wypozyczenia_str}, '
+            wypozyczone.append((id_wypozyczonej_ksiazki, tytul, autor, data_wypozyczenia_str, data_oddania_str))
+            print(f'Wypożyczono książkę: {tytul}; {autor}; '
+                  f'data wypożyczenia: {data_wypozyczenia_str}; '
                   f'data oddania: {data_oddania_str}')
 
     df_new.to_csv('baza_ksiazek.txt', index=False, header=False, sep=';')
     karta_czytelnika(u_id, wypozyczone)
     print('\nPodsumowanie wypożyczeń:')
     for ksiazka in wypozyczone:
-        print(f'Tytuł: {ksiazka[0]}, Autor: {ksiazka[1]}, Wypożyczono: {ksiazka[2]}, Oddać do: {ksiazka[3]}')
+        print(f'Tytuł: {ksiazka[1]}, Autor: {ksiazka[2]}, Wypożyczono: {ksiazka[3]}, Oddać do: {ksiazka[4]}')
 
     return wypozyczone
 

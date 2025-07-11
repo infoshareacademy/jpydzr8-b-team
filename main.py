@@ -18,7 +18,8 @@ def menu():
         elif wybor == "2":
             rejestracja("baza_uzytkownikow.txt")
         elif wybor == "3":
-            print(wczytanie_bazy_ksiazek())
+            df_new = wczytanie_bazy_ksiazek()
+            print(df_new.to_string(index=False))
         elif wybor == "4":
             print("Do zobaczenia !")
             break

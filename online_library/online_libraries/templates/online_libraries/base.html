@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>B-Team Library</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Style dla linku z klasą footer-link */
+    .footer-link {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 1rem;
+      text-decoration: none;
+      display: inline-block; /* aby margin-top działał */
+      text-align: left; /* jeśli potrzebujesz wyrównania tekstu */
+    }
+
+    /* Styl dla linku przy najechaniu myszką */
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <p>
+      <a href="{% url 'online_libraries:main' %}" class="footer-link">Main-page</a>
+      <a href="{% url 'online_libraries:books_library' %}" class="footer-link">Library</a>
+      <a href="{% url 'online_libraries:sign_in' %}" class="footer-link">Sign-in</a>
+      <a href="{% url 'online_libraries:sign_up' %}" class="footer-link">Sign-up</a>
+
+      <a href="{% url 'online_libraries:about_us' %}" class="footer-link">About-us</a>
+  </p>
+
+  {% block content %}{% endblock content %}
+
+  <footer>
+    Created by B-Team
+  </footer>
+
+</body>
+</html>

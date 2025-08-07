@@ -33,8 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     #moje aplikacje
     'online_libraries',
+    'accounts',
     
-    #domyslne aplikacje django
+#domyslne aplikacje django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,3 +126,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#moje ustawienia
+LOGIN_REDIRECT_URL = 'online_libraries:main'
+LOGOUT_REDIRECT_URL = 'online_libraries:main'
+

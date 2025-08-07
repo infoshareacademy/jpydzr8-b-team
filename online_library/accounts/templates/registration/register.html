@@ -1,0 +1,8 @@
+{% extends "online_libraries/base.html" %}
+{% block content %}
+    <form method="POST" action="{% url 'accounts:register' %}">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button name="submit">Submit</button>
+    </form>
+{% endblock content %}

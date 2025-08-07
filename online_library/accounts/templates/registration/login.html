@@ -1,0 +1,13 @@
+{% extends "online_libraries/base.html" %}
+{% block content %}
+    {% if form.errors %}
+    <p>The username or password is incorrect. Please try again.</p>
+    {% endif %}
+
+    <form method="POST" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+    {{ form.as_div }}
+
+    <button name="submit">Submit</button>
+    </form>
+{% endblock content %}

@@ -5,95 +5,109 @@
   <title>B-Team Library</title>
   <style>
     * {
-      box-sizing: border-box;
+    box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     }
 
     main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
     }
 
     p {
-      font-size: 1.5rem;
-      color: #ccc;
+    font-size: 1.5rem;
+    color: #ccc;
     }
 
     footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #666;
     }
 
-    /* Style dla linku z klasą footer-link */
+    .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #111;
+    }
+
+    .nav-left, .nav-right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    }
+
     .footer-link {
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 1rem;
-      text-decoration: none;
-      display: inline-block; /* aby margin-top działał */
-      text-align: left; /* jeśli potrzebujesz wyrównania tekstu */
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 1rem;
+    text-decoration: none;
+    display: inline-block; /* aby margin-top działał */
+    text-align: left; /* wyrównanie tekstu */
     }
 
     .footer-link button {
-     background: none;
-     border: none;
-     color: #666;
-     font-size: 0.9rem;
-     text-decoration: none;
-     cursor: pointer;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
     }
 
     /* Styl dla linku przy najechaniu myszką */
     .footer-link:hover {
-      text-decoration: underline;
+    text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
   <div class="nav-links">
+    <div class="nav-left">
       <a href="{% url 'online_libraries:main' %}" class="footer-link">Main-page</a>
       <a href="{% url 'online_libraries:books_library' %}" class="footer-link">Library</a>
       <a href="{% url 'online_libraries:about_us' %}" class="footer-link">About-us</a>
-        {% if user.is_authenticated %}
-        {# Hello, {{ user.username }} #}
-        {% else %}
+    </div>
+
+    <div class="nav-right">
+      {% if user.is_authenticated %}
+        <form action="{% url 'accounts:logout' %}" method="post" class="footer-link" style="display:inline;">
+          {% csrf_token %}
+          <button name="submit">Sign-out</button>
+        </form>
+      {% else %}
         <a href="{% url 'accounts:login' %}" class="footer-link">Sign-in</a>
         <a href="{% url 'accounts:register' %}" class="footer-link">Sign-up</a>
-        {% endif %}
-        {% if user.is_authenticated %}
-        <form action="{% url 'accounts:logout' %}" method="post" class="footer-link" style="display:inline;">
-        {% csrf_token %}
-        <button name="submit">Sign-out</button>
-        </form>
-        {% endif %}
+      {% endif %}
+    </div>
   </div>
 
   {% block content %}{% endblock content %}
   <footer>
     Created by B-Team
   </footer>
-
 </body>
 </html>

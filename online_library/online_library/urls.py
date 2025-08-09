@@ -1,9 +1,9 @@
-"Definiuje wzorce adresow URL dla online_libraries"
+"Definiuje wzorce adresow URL dla online_library"
 
 from django.urls import path
 from . import views
 
-app_name = 'online_libraries'
+app_name = 'online_library'
 urlpatterns = [
     #strona glowna
     path('', views.main, name='main'),

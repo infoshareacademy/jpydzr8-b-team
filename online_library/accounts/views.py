@@ -15,7 +15,7 @@ def register(request):
             new_user = form.save()
             #zalogowanie uzytkownika, a nastepnie przekierowanie go na strone glowna
             login(request, new_user)
-            return redirect('online_libraries:main')
+            return redirect('online_library:main')
         #wyswietlenie pustego formularza
     context = {'form': form}
     return render(request, 'registration/register.html', context)

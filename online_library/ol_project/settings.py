@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     #moje aplikacje
-    'online_libraries',
+    'online_library',
     'accounts',
     
 #domyslne aplikacje django
@@ -121,6 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",   # wskazanie na ten globalny folder
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -128,6 +131,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #moje ustawienia
-LOGIN_REDIRECT_URL = 'online_libraries:main'
-LOGOUT_REDIRECT_URL = 'online_libraries:main'
+LOGIN_REDIRECT_URL = 'online_library:main'
+LOGOUT_REDIRECT_URL = 'online_library:main'
 

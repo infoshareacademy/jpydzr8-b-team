@@ -17,9 +17,9 @@
 
     <div class="nav-right">
         {% if user.is_authenticated %}
-            <form action="{% url 'accounts:logout' %}" method="post" class="footer-link" style="display:inline;">
+            <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
             {% csrf_token %}
-            <button name="submit">Sign-out</button>
+            <button type="submit" class="footer-link">Sign-out</button>
             </form>
         {% else %}
             <a href="{% url 'accounts:login' %}" class="footer-link">Sign-in</a>

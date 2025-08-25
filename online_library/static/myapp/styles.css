@@ -1,131 +1,125 @@
- * {
-        box-sizing: border-box;
-    }
+/* --- RESET I PODSTAWY --- */
+* {
+    box-sizing: border-box;
+}
 
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-    main {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-    }
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
 
-    h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
 
-    p {
-        font-size: 1.5rem;
-        color: #ccc;
-    }
+p {
+    font-size: 1.5rem;
+    color: #ccc;
+}
 
-    footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        text-align: center;
-        padding: 1rem;
-        font-size: 0.9rem;
-        color: #666;
-    }
+/* --- FOOTER --- */
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
 
-    .nav-links {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-        background-color: #111;
-    }
+/* --- NAVBAR --- */
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #111;
+}
 
-    .nav-left, .nav-right {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-    }
+.nav-left, .nav-right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
 
-    .footer-link {
-        font-size: 0.9rem;
-        color: #666;
-        margin-top: 1rem;
-        text-decoration: none;
-        display: inline-block; /* aby margin-top działał */
-        text-align: left; /* wyrównanie tekstu */
-    }
+/* --- LINKI W NAV --- */
+.footer-link {
+    font-size: 0.9rem;
+    color: #666;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
 
-    .footer-link button {
-        background: none;
-        border: none;
-        color: #666;
-        font-size: 0.9rem;
-        text-decoration: none;
-        cursor: pointer;
-    }
+.footer-link:hover {
+    text-decoration: underline;
+}
 
-    /* Styl dla linku przy najechaniu myszką */
-    .footer-link:hover {
-        text-decoration: underline;
-    }
+/* --- FORMULARZE LOGOWANIA/REJESTRACJI --- */
+form:not(.logout-form) {
+    background-color: #000;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 450px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
 
+/* Etykiety */
+form:not(.logout-form) label {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    color: #ccc;
+}
 
-    form {
-        background-color: #000; /* ciemne tło podobne do nav */
-        padding: 2rem;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        width: 450px; /* szerokość formularza */
-        color: #fff;
-        font-family: Arial, sans-serif;
-    }
+/* Pola input */
+form:not(.logout-form) input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #222;
+    color: #fff;
+    font-size: 1rem;
+}
 
-    /* Etykiety pól */
-    form label {
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
-        color: #ccc;
-    }
+form:not(.logout-form) input::placeholder {
+    color: #888;
+}
 
-    /* Pola input */
-    form input {
-        padding: 0.5rem;
-        border-radius: 5px;
-        border: 1px solid #333;
-        background-color: #222;
-        color: #fff;
-        font-size: 1rem;
-    }
+/* Przyciski w dużych formularzach */
+form:not(.logout-form) button {
+    padding: 0.5rem;
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
-    /* Placeholder w input */
-    form input::placeholder {
-        color: #888;
-    }
-
-    /* Przyciski */
-    form button {
-        padding: 0.50rem;
-        background-color: #444;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background 0.3s;
-    }
-
-    form button:hover {
-        background-color: #666;
-    }
+form:not(.logout-form) button:hover {
+    background-color: #666;
+}

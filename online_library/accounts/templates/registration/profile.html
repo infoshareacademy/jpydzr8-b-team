@@ -1,9 +1,9 @@
 {% extends "online_library/base.html" %}
 {% block content %}
-<h2>Sign Up</h2>
+<h2>Profile</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Register</button>
+  <button type="submit">Save</button>
 </form>
 {% endblock %}

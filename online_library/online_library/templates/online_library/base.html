@@ -17,13 +17,14 @@
 
     <div class="nav-right">
         {% if user.is_authenticated %}
-            <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
+        <a href="{% url 'accounts:profile' %}">Profile</a>
+        <form action="{% url 'accounts:logout' %}" method="post" style="display:inline;">
             {% csrf_token %}
-            <button type="submit" class="footer-link">Sign-out</button>
-            </form>
+        <button type="submit">Sign Out</button>
+        </form>
         {% else %}
-            <a href="{% url 'accounts:login' %}" class="footer-link">Sign-in</a>
-            <a href="{% url 'accounts:register' %}" class="footer-link">Sign-up</a>
+            <a href="{% url 'accounts:login' %}">Sign In</a>
+            <a href="{% url 'accounts:register' %}">Sign Up</a>
         {% endif %}
     </div>
   </div>

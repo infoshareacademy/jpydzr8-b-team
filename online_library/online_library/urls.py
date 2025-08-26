@@ -8,7 +8,7 @@ urlpatterns = [
     #strona glowna
     path('', views.main, name='main'),
     # strona z baza ksiazek
-    path('books_library/', views.books_library, name='books_library'),
+    path('books/', views.books_library, name='books_library'),
     #strona about_us
-    path('about_us/', views.about_us, name='about_us'),
+    path('about/', views.about_us, name='about_us'),
 ]

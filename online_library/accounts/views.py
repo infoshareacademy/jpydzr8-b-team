@@ -7,7 +7,7 @@ def register(request):
         form = MyRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("online_library:main")
+            return redirect("accounts:login")
     else:
         form = MyRegisterForm()
     return render(request, "registration/register.html", {"form": form})

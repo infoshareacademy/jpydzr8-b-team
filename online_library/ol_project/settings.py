@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     #moje aplikacje
     'online_library',
     'accounts',
+    'catalog',
     
 #domyslne aplikacje django
     'django.contrib.admin',

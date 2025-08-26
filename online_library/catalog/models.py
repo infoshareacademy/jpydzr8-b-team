@@ -28,16 +28,3 @@ class Book(models.Model):
     def __str__(self):
         return self.name
 
-    # def borrow(self):
-    #     """Zmniejsza liczbę dostępnych egzemplarzy o 1, jeśli są dostępne."""
-    #     if self.available_copies > 0:
-    #         self.available_copies -= 1
-    #         self.save()
-    #         return True
-    #     return False
-    #
-    # def return_book(self):
-    #     """Zwiększa liczbę dostępnych egzemplarzy o 1."""
-    #     self.available_copies += 1
-    #     self.save()
-

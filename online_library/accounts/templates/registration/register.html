@@ -1,9 +1,14 @@
 {% extends "online_library/base.html" %}
 {% block content %}
-<h2>Sign Up</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Register</button>
-</form>
+<div class="auth-wrapper signup-wrapper">
+    <div class="auth-container">
+        <h2>Sign Up</h2>
+        <p class="text-muted">Fill in the form to create an account.</p>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Register</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

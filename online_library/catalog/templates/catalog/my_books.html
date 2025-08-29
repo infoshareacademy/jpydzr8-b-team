@@ -1,0 +1,45 @@
+{% extends 'online_library/base.html' %}
+
+{% block content %}
+<main class="my-books-page">
+  <div class="library-hero">
+    <h2>My Books</h2>
+    <p>Here are the books you have currently borrowed.</p>
+  </div>
+
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="{{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="books-table">
+    <div class="books-header">
+      <span class="col name">Name</span>
+      <span class="col author">Author(s)</span>
+      <span class="col publisher">Publisher</span>
+      <span class="col pages">Pages</span>
+      <span class="col due">Due Date</span>
+      <span class="col action">Action</span>
+    </div>
+
+    {% for borrowed in borrowed_books %}
+    <div class="books-row">
+      <span class="col name">{{ borrowed.book.name }}</span>
+      <span class="col author">{% for author in borrowed.book.authors.all %}{{ author.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</span>
+      <span class="col publisher">{{ borrowed.book.publisher.name }}</span>
+      <span class="col pages">{{ borrowed.book.pages }}</span>
+      <span class="col due">{{ borrowed.return_due|date:"Y-m-d" }}</span>
+      <span class="col action">
+        <form action="{% url 'catalog:return_book' borrowed.book.id %}" method="post" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit">Return</button>
+        </form>
+      </span>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

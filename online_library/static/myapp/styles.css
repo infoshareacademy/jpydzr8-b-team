@@ -1,4 +1,3 @@
-/* RESET I PODSTAWY */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,10 +28,13 @@ main {
 }
 
 /* NAGŁÓWKI I TEKST */
-h1 {
-    font-size: 2.8rem;
+h1, h2 {
+    color: #fff;
     margin-bottom: 1rem;
 }
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
 
 p {
     font-size: 1.4rem;
@@ -65,7 +67,6 @@ footer {
     align-items: center;
 }
 
-/* LINKI I PRZYCISKI W NAV */
 .footer-link {
     font-size: 0.9rem;
     color: #666;
@@ -115,7 +116,8 @@ footer {
 }
 
 .books-row span,
-.books-row a {
+.books-row a,
+.books-row button {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -127,11 +129,20 @@ footer {
 .col.publisher { flex: 1.5; }
 .col.pages { flex: 1; }
 .col.available { flex: 1; }
+.col.due { flex: 1.2; }
 .col.action { flex: 1; text-align: center; }
 
-.books-row a {
+.books-row a, .books-row button {
     color: #fff;
     text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.books-row button:hover, .books-row a:hover {
+    text-decoration: none;
+    color: #00aaff;
 }
 
 /* Responsywność książek */
@@ -147,56 +158,53 @@ footer {
 }
 
 /* HERO / CENTRALNE NAGŁÓWKI */
-.main-hero, .library-hero, .profile-hero {
+.main-hero, .library-hero {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* pion */
-    align-items: center;     /* poziom */
+    justify-content: center;
+    align-items: center;
     text-align: center;
     gap: 1rem;
 }
 
-/* MAIN PAGE HERO */
-.main-hero {
-    height: 80vh;
+.main-hero { height: 80vh; }
+.library-hero { height: auto; margin-top: 0; padding-top: 20px; }
+
+.main-hero h1 { font-size: 3rem; }
+.main-hero p { font-size: 1.5rem; max-width: 600px; }
+
+.library-hero h2 { font-size: 2.2rem; }
+.library-hero p { font-size: 1.2rem; max-width: 600px; }
+
+/* MY BOOKS PAGE */
+.my-books-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 0;
 }
 
-.main-hero h1 {
-    font-size: 3rem;
-    color: #fff;
-}
-
-.main-hero p {
-    font-size: 1.5rem;
-    color: #ccc;
-    max-width: 600px;
-}
-
-/* LIBRARY HERO */
-.library-hero {
-    height: 60vh;
-}
-
-.library-hero h2 {
-    font-size: 2.2rem;
-    color: #fff;
-}
-
-.library-hero p {
-    font-size: 1.2rem;
-    color: #ccc;
-    max-width: 600px;
-}
-
+/* PROFILE CONTAINER */
 .profile-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;   /* zaczyna trochę wyżej */
+    justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    padding: 30px 1rem 80px 1rem; /* zmniejszone padding-top z 50px na 30px */
+    padding: 30px 1rem 80px 1rem;
     width: 100%;
     box-sizing: border-box;
+}
+
+.profile-container h2 {
+    text-align: center; /* wycentrowany nagłówek profilu */
+}
+
+.profile-hero h2,
+.profile-hero p {
+    text-align: center;
 }
 
 .profile-container form {
@@ -254,13 +262,19 @@ footer {
     background-color: #666;
 }
 
+/* Ukrycie help_text w profile */
+.profile-container .helptext,
+.profile-container form .helptext {
+    display: none;
+}
+
 /* REJESTRACJA / LOGOWANIE */
-.auth-wrapper {
+.auth-wrapper, .signup-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;   /* zaczyna pod navbar */
-    align-items: center;           /* poziom */
-    padding: 100px 1rem 80px 1rem; /* odstęp od navbar i footer */
+    justify-content: flex-start;
+    align-items: center;
+    padding: 80px 1rem 60px 1rem; /* zmniejszone paddingi */
     width: 100%;
     box-sizing: border-box;
 }
@@ -274,15 +288,13 @@ footer {
 }
 
 .auth-container h2 {
-    font-size: 2rem;
-    color: #fff;
-    text-align: center;
+    font-size: 1.8rem; /* zmniejszone nagłówki */
+    text-align: center; /* wyśrodkowane */
 }
 
 .auth-container p {
-    font-size: 1.2rem;
-    color: #ccc;
-    text-align: center;
+    font-size: 1rem; /* zmniejszone paragrafy */
+    text-align: center; /* wyśrodkowane */
 }
 
 .auth-container form {
@@ -290,7 +302,7 @@ footer {
     flex-direction: column;
     gap: 0.5rem;
     background-color: #111;
-    padding: 2rem;
+    padding: 1.5rem; /* zmniejszone paddingi */
     border-radius: 8px;
     color: #fff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.6);
@@ -304,11 +316,6 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-.auth-container form label {
-    font-size: 0.85rem;
-    color: #ccc;
-}
-
 .auth-container form input,
 .auth-container form textarea {
     padding: 0.45rem 0.5rem;
@@ -318,11 +325,6 @@ footer {
     color: #fff;
     font-size: 0.95rem;
     width: 100%;
-}
-
-.auth-container form input::placeholder,
-.auth-container form textarea::placeholder {
-    color: #888;
 }
 
 .auth-container form button {
@@ -340,26 +342,30 @@ footer {
     background-color: #666;
 }
 
-/* Tekst błędu */
-.auth-container .error-text {
-    color: #ff4c4c;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
+/* KOMUNIKATY */
+.messages {
+    width: 95%;
+    max-width: 1200px;
+    margin: 1rem auto;
 }
 
-.signup-wrapper {
-    padding-top: 20px;        /* wysokość navbara */
-    padding-bottom: 10px;     /* odstęp od footera */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* zaczyna od góry */
-    box-sizing: border-box;
+.messages .success {
+    background-color: #0a0;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
 }
 
-/* Ukrycie help_text w profile */
-.profile-container .helptext,
-.profile-container form .helptext {
-    display: none;
+.messages .error {
+    background-color: #a00;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+
+body.signup-page footer {
+    margin-top: -3rem; /* zmniejszamy odstęp od treści, podnosi footer */
 }

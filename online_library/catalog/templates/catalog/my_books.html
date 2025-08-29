@@ -32,12 +32,12 @@
       <span class="col publisher">{{ borrowed.book.publisher.name }}</span>
       <span class="col pages">{{ borrowed.book.pages }}</span>
       <span class="col due">{{ borrowed.return_due|date:"Y-m-d" }}</span>
-      <span class="col action">
+      <div class="col action">
         <form action="{% url 'catalog:return_book' borrowed.book.id %}" method="post" style="display:inline;">
           {% csrf_token %}
           <button type="submit">Return</button>
         </form>
-      </span>
+      </div>
     </div>
     {% endfor %}
   </div>

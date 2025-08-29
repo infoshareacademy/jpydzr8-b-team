@@ -369,3 +369,18 @@ footer {
 body.signup-page footer {
     margin-top: -3rem; /* zmniejszamy odstęp od treści, podnosi footer */
 }
+
+.books-row button {
+    background: none;
+    border: none;
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+}
+
+.books-row button:hover {
+    color: #00aaff;
+    text-decoration: none;
+}

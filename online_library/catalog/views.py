@@ -13,6 +13,11 @@ def books_library(request):
 def borrow_book(request, book_id):
     book = get_object_or_404(Book, id=book_id)
 
+    # Sprawdzenie, ile książek już wypożyczył użytkownik
+    borrowed_count = BorrowedBook.objects.filter(user=request.user).count()
+    if borrowed_count >= 5:
+        messages.error(request, "You cannot borrow more than 5 books at the same time.")
+        return redirect('catalog:books_library')
     # Sprawdzamy, czy użytkownik już wypożyczył tę książkę
     already_borrowed = BorrowedBook.objects.filter(user=request.user, book=book).exists()
     if already_borrowed:

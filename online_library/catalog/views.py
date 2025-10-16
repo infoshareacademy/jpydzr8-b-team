@@ -50,8 +50,6 @@ def my_books(request):
 
 @login_required
 def return_book(request, book_id):
-    # ten if wymusza oddanie ksiazki przez button return books, zeby nie mozna bylo zrobic przez
-    # https://twojastrona.com/my-books/return/5/
     if request.method != "POST":
         messages.error(request, "Invalid request method.")
         return redirect('catalog:my_books')

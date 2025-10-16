@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Tworzymy własny logger "myapp"
 logger = logging.getLogger('online_library')
 logger.setLevel(logging.INFO)
-logger.propagate = False  # <- bardzo ważne, nie przesyłaj logów dalej do root loggera
+logger.propagate = False  # <- Nie przesyłaj logów dalej do root loggera
 
 # Handler do pliku
 file_handler = logging.FileHandler(os.path.join(BASE_DIR, 'online_library.log'), mode='a')

@@ -10,4 +10,6 @@ urlpatterns = [
     path('my-books/', views.my_books, name='my_books'),
     path('my-books/return/<int:book_id>/', views.return_book, name='return_book'),
     path('reports/borrowed-users/', views.borrowed_users_report, name='borrowed_users_report'),
+    path('logs/', views.view_logs, name='view_logs'),
+
 ]

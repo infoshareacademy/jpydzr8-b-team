@@ -24,6 +24,10 @@
             {% if user.is_superuser %}
             <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link">Reports</a>
             {% endif %}
+            {% if user.is_superuser %}
+            <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link">Reports</a>
+            <a href="{% url 'catalog:view_logs' %}" class="footer-link">Logs</a>
+            {% endif %}
         <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
             {% csrf_token %}
         <button type="submit" class="footer-link">Sign Out</button>

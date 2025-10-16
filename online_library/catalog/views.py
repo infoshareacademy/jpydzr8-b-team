@@ -3,9 +3,10 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .models import Book, BorrowedBook
 from ol_project.logger_config import logger
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404, FileResponse
 from django.contrib.auth.models import User
-import csv
+import csv, os
+from django.conf import settings
 
 def books_library(request):
     books = Book.objects.all()
@@ -105,3 +106,13 @@ def borrowed_users_report(request):
         ])
 
     return response
+
+@login_required
+@user_passes_test(is_admin)  # tylko superuser
+def view_logs(request):
+    log_file_path = os.path.join(settings.BASE_DIR, "online_library.log")
+    if not os.path.exists(log_file_path):
+        raise Http404("Log file does not exist.")
+
+    # Zwracamy plik do pobrania
+    return FileResponse(open(log_file_path, "rb"), as_attachment=True, filename="online_library.log")

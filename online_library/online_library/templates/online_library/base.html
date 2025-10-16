@@ -22,7 +22,7 @@
         <a href="{% url 'catalog:my_books' %}" class="footer-link">My Books</a>
         <a href="{% url 'accounts:profile' %}" class="footer-link">Profile</a>
             {% if user.is_superuser %}
-            <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link report-btn">Reports</a>
+            <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link">Reports</a>
             {% endif %}
         <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
             {% csrf_token %}

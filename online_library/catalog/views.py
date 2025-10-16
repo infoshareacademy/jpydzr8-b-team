@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .models import Book, BorrowedBook
 from ol_project.logger_config import logger
-
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+import csv
 
 def books_library(request):
     books = Book.objects.all()
@@ -72,4 +74,34 @@ def return_book(request, book_id):
     logger.info(f"User '{request.user.username}' returned book '{book.name}'.")
     return redirect('catalog:my_books')
 
+# tylko admin może wygenerować raport
+def is_admin(user):
+    return user.is_superuser
 
+@login_required
+@user_passes_test(is_admin)
+def borrowed_users_report(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="borrowed_users_report.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Username', 'Email', 'Date Joined', 'Last Login', 'Borrowed Count', 'Borrowed Books'])
+
+    # iterujemy tylko po użytkownikach, którzy mają wypożyczone książki
+    borrowed_users = User.objects.filter(borrowedbook__isnull=False).distinct()
+
+    for user in borrowed_users:
+        borrowed_books_qs = BorrowedBook.objects.filter(user=user)
+        borrowed_books_names = ", ".join([b.book.name for b in borrowed_books_qs])
+        borrowed_count = borrowed_books_qs.count()
+
+        writer.writerow([
+            user.username,
+            user.email,
+            user.date_joined,
+            user.last_login,
+            borrowed_count,
+            borrowed_books_names
+        ])
+
+    return response

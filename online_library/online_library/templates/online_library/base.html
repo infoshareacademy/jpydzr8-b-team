@@ -1,48 +1,89 @@
-{% load static %}
+{% load static i18n %}
 
 <!DOCTYPE html>
-<html lang="en">
+{% get_current_language as LANGUAGE_CODE %}<html lang="{{ LANGUAGE_CODE }}">
 <head>
     <meta charset="UTF-8">
-    <title>B-Team Library</title>
+    <title>{% block title %}B-Team Library{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+    <style>
+      /* Fallback style jeśli nie masz/nie chcesz edytować styles.css */
+      .nav-links { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; }
+      .nav-left, .nav-right { display:flex; gap:12px; align-items:center; }
+      .footer-link { text-decoration:none; padding:6px 8px; }
+      .lang-switcher { display:flex; gap:8px; align-items:center; margin-right:8px; }
+      .lang-switcher form { margin:0; }
+      .lang-switcher button { background:none; border:0; padding:0; cursor:pointer; display:inline-block; }
+      .lang-switcher img { width:22px; height:auto; display:block; }
+      /* Zapobiega nakładaniu się przez responsywność: zmniejsz flagi na małych ekranach */
+      @media (max-width:480px) {
+        .lang-switcher img { width:18px; }
+      }
+      /* Dodatkowo ustawienie, żeby nav nie przykrywało niczego */
+      header { position:relative; z-index:100; }
+    </style>
 </head>
 <body>
+  <header>
     <div class="nav-links">
-    <div class="nav-left">
-        <a href="{% url 'online_library:main' %}" class="footer-link">Main-page</a>
-{#        <a href="{% url 'online_library:books_library' %}" class="footer-link">Library</a>#}
-        <a href="{% url 'catalog:books_library' %}" class="footer-link">Library</a>
+      <div class="nav-left">
+        <a href="{% url 'online_library:main' %}" class="footer-link">{% trans "Main-page" %}</a>
+        <a href="{% url 'catalog:books_library' %}" class="footer-link">{% trans "Library" %}</a>
+        <a href="{% url 'online_library:about_us' %}" class="footer-link">{% trans "About-us" %}</a>
+      </div>
 
-        <a href="{% url 'online_library:about_us' %}" class="footer-link">About-us</a>
-    </div>
+      <div class="nav-right">
+        {# PRZENIESIONY PRZEŁĄCZNIK JĘZYKÓW: obok linków logowania #}
+        <div class="lang-switcher" aria-label="{% trans 'Language switcher' %}">
+          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+            <input name="language" type="hidden" value="en">
+            <button type="submit" title="{% trans 'English' %}">
+              <img src="{% static 'images/flags/en.svg' %}" alt="EN">
+            </button>
+          </form>
 
-    <div class="nav-right">
+          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+            <input name="language" type="hidden" value="de">
+            <button type="submit" title="{% trans 'Deutsch' %}">
+              <img src="{% static 'images/flags/de.svg' %}" alt="DE">
+            </button>
+          </form>
+
+          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+            <input name="language" type="hidden" value="es">
+            <button type="submit" title="{% trans 'Español' %}">
+              <img src="{% static 'images/flags/es.svg' %}" alt="ES">
+            </button>
+          </form>
+        </div>
+
+        {# auth links #}
         {% if user.is_authenticated %}
-        <a href="{% url 'catalog:my_books' %}" class="footer-link">My Books</a>
-        <a href="{% url 'accounts:profile' %}" class="footer-link">Profile</a>
-            {% if user.is_superuser %}
-            <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link">Reports</a>
-            {% endif %}
-            {% if user.is_superuser %}
-            <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link">Reports</a>
-            <a href="{% url 'catalog:view_logs' %}" class="footer-link">Logs</a>
-            {% endif %}
-        <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
+          <a href="{% url 'catalog:my_books' %}" class="footer-link">{% trans "My Books" %}</a>
+          <a href="{% url 'accounts:profile' %}" class="footer-link">{% trans "Profile" %}</a>
+          {% if user.is_superuser %}
+              <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link">{% trans "Reports" %}</a>
+              <a href="{% url 'catalog:view_logs' %}" class="footer-link">{% trans "Logs" %}</a>
+          {% endif %}
+          <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
             {% csrf_token %}
-        <button type="submit" class="footer-link">Sign Out</button>
-        </form>
+            <button type="submit" class="footer-link">{% trans "Sign Out" %}</button>
+          </form>
         {% else %}
-            <a href="{% url 'accounts:login' %}" class="footer-link">Sign In</a>
-            <a href="{% url 'accounts:register' %}" class="footer-link">Sign Up</a>
+          <a href="{% url 'accounts:login' %}" class="footer-link">{% trans "Sign In" %}</a>
+          <a href="{% url 'accounts:register' %}" class="footer-link">{% trans "Sign Up" %}</a>
         {% endif %}
+      </div>
     </div>
-  </div>
+  </header>
 
   {% block content %}{% endblock content %}
 
-<footer>
-    Created by B-Team
-</footer>
+  <footer>
+    {% trans "Created by B-Team" %}
+  </footer>
 </body>
 </html>

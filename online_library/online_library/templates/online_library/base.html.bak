@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B-Team Library</title>
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+</head>
+<body>
+    <div class="nav-links">
+    <div class="nav-left">
+        <a href="{% url 'online_library:main' %}" class="footer-link">Main-page</a>
+{#        <a href="{% url 'online_library:books_library' %}" class="footer-link">Library</a>#}
+        <a href="{% url 'catalog:books_library' %}" class="footer-link">Library</a>
+
+        <a href="{% url 'online_library:about_us' %}" class="footer-link">About-us</a>
+    </div>
+
+    <div class="nav-right">
+        {% if user.is_authenticated %}
+        <a href="{% url 'catalog:my_books' %}" class="footer-link">My Books</a>
+        <a href="{% url 'accounts:profile' %}" class="footer-link">Profile</a>
+        <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
+            {% csrf_token %}
+        <button type="submit" class="footer-link">Sign Out</button>
+        </form>
+        {% else %}
+            <a href="{% url 'accounts:login' %}" class="footer-link">Sign In</a>
+            <a href="{% url 'accounts:register' %}" class="footer-link">Sign Up</a>
+        {% endif %}
+    </div>
+  </div>
+
+  {% block content %}{% endblock content %}
+
+<footer>
+    Created by B-Team
+</footer>
+</body>
+</html>

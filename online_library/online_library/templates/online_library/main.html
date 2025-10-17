@@ -1,8 +1,12 @@
+{# templates/online_library/main.html #}
 {% extends "online_library/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "B-Team Library" %}{% endblock title %}
 
 {% block content %}
-<div class="main-hero">
-    <h1>B-Team Library</h1>
-    <p>Your books. Anywhere you are.</p>
-</div>
+  <section class="main-hero">
+    <h1>{% trans "Welcome to B-Team Library" %}</h1>
+    <p>{% trans "Browse our collection of books." %}</p>
+  </section>
 {% endblock content %}

@@ -1,9 +1,10 @@
 {% extends 'online_library/base.html' %}
+{% load i18n %}
 
 {% block content %}
 <div class="library-hero">
-  <h2>Library</h2>
-  <p>Browse the catalog and select books you would like to borrow.</p>
+  <h2>{% trans "Library" %}</h2>
+  <p>{% trans "Browse the catalog and select books you would like to borrow." %}</p>
 </div>
 
 {% if messages %}
@@ -16,30 +17,40 @@
 
 <div class="books-table">
     <div class="books-header">
-        <span class="col name">Name</span>
-        <span class="col author">Author(s)</span>
-        <span class="col publisher">Publisher</span>
-        <span class="col pages">Pages</span>
-        <span class="col available">Available</span>
-        <span class="col action">Action</span>
+        <span class="col name">{% trans "Name" %}</span>
+        <span class="col author">{% trans "Author(s)" %}</span>
+        <span class="col publisher">{% trans "Publisher" %}</span>
+        <span class="col pages">{% trans "Pages" %}</span>
+        <span class="col available">{% trans "Available" %}</span>
+        <span class="col action">{% trans "Action" %}</span>
     </div>
 
     {% for book in books %}
     <div class="books-row">
-        <span class="col name">{{ book.name }}</span>
-        <span class="col author">{% for author in book.authors.all %}{{ author.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</span>
+        <span class="col name">
+            {% if book.name %}
+                {{ book.name }}
+            {% else %}
+                {% trans "Untitled" %}
+            {% endif %}
+        </span>
+        <span class="col author">
+            {% for author in book.authors.all %}
+                {{ author.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </span>
         <span class="col publisher">{{ book.publisher.name }}</span>
         <span class="col pages">{{ book.pages }}</span>
         <span class="col available">{{ book.available_copies }}</span>
         <span class="col action">
             {% if user.is_authenticated %}
                 {% if book.available_copies > 0 %}
-                    <a href="{% url 'catalog:borrow_book' book.id %}">Borrow</a>
+                    <a href="{% url 'catalog:borrow_book' book.id %}">{% trans "Borrow" %}</a>
                 {% else %}
-                    <span>Not available</span>
+                    <span>{% trans "Not available" %}</span>
                 {% endif %}
             {% else %}
-                <span>Sign in</span>
+                <span>{% trans "Sign in to borrow books" %}</span>
             {% endif %}
         </span>
     </div>

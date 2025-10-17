@@ -1,4 +1,3 @@
-/* RESET I PODSTAWY */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,11 +12,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #1e1e1e;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ========================= */
 /* MAIN */
 main {
     flex: 1;
@@ -28,21 +28,25 @@ main {
     min-height: 0;
 }
 
-/* NAGŁÓWKI I TEKST */
-h1, h2 {
-    color: #fff;
+/* ========================= */
+/* NAGĹĂWKI I TEKST */
+h1, h2, h3 {
+    color: #222;
     margin-bottom: 1rem;
 }
 
 h1 { font-size: 2.8rem; }
-h2 { font-size: 2.2rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
 
 p {
     font-size: 1.4rem;
-    color: #ccc;
+    color: #444;
     margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
+/* ========================= */
 /* FOOTER */
 footer {
     margin-top: auto;
@@ -53,13 +57,16 @@ footer {
     color: #666;
 }
 
+/* ========================= */
 /* NAVBAR */
 .nav-links {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #111;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .nav-left, .nav-right {
@@ -70,23 +77,23 @@ footer {
 
 .footer-link {
     font-size: 0.9rem;
-    color: #666;
+    color: #1e90ff;
     text-decoration: none;
     cursor: pointer;
     background: none;
     border: none;
-    padding: 0.2rem 0.4rem;
-    border-radius: 3px;
-    transition: color 0.3s, background 0.3s;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
 }
 
 .footer-link:hover {
-    text-decoration: underline;
     color: #fff;
-    background-color: #222;
+    background-color: #1e90ff;
 }
 
-/* KSIĄŻKI - LISTA/TABELA */
+/* ========================= */
+/* KSIÄĹťKI - LISTA/TABELA */
 .books-table {
     width: 95%;
     max-width: 1200px;
@@ -94,26 +101,25 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    color: #fff;
 }
 
 .books-header, .books-row {
     display: flex;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1rem;
     align-items: center;
+    border-radius: 8px;
 }
 
 .books-header {
     font-weight: bold;
-    border-bottom: 1px solid #666;
-    color: #ccc;
+    background-color: #e0e0e0;
+    color: #333;
 }
 
 .books-row {
-    background-color: #111;
-    border: 1px solid #333;
-    border-radius: 6px;
-    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    color: #333;
 }
 
 .books-row span,
@@ -135,35 +141,23 @@ footer {
 
 .books-row a,
 .books-row button {
-    color: #fff;
-    text-decoration: underline;
+    color: #1e90ff;
+    text-decoration: none;
     background: none;
     border: none;
     cursor: pointer;
     font: inherit;
     padding: 0;
-    transition: color 0.3s, text-decoration 0.3s;
+    transition: color 0.3s;
 }
 
 .books-row a:hover,
 .books-row button:hover {
-    color: #00aaff;
-    text-decoration: none;
+    color: #0d5ea8;
 }
 
-/* Responsywność książek */
-@media (max-width: 900px) {
-    .books-header, .books-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.3rem;
-    }
-    .col {
-        width: 100%;
-    }
-}
-
-/* HERO / CENTRALNE NAGŁÓWKI */
+/* ========================= */
+/* HERO / CENTRALNE NAGĹĂWKI */
 .main-hero, .library-hero, .profile-hero {
     display: flex;
     flex-direction: column;
@@ -182,172 +176,88 @@ footer {
 .library-hero h2 { font-size: 2.2rem; }
 .library-hero p { font-size: 1.2rem; max-width: 600px; }
 
-/* MY BOOKS PAGE */
-.my-books-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start !important;
-    align-items: center;
-    width: 100%;
-    padding: 2rem 0;
-}
-
-/* PROFILE CONTAINER */
-.profile-container {
+/* ========================= */
+/* PROFILE, SIGN IN / SIGN UP FORMULARZE */
+.profile-container,
+.auth-wrapper,
+.signup-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
-    padding: 30px 1rem 80px 1rem;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    width: 100%;
+}
+
+.profile-container form,
+.auth-container form,
+.signup-wrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 400px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.profile-container h2 {
-    text-align: center;
-}
-
-.profile-hero h2,
-.profile-hero p {
-    text-align: center;
-}
-
-.profile-container form {
-    width: 100%;
-    max-width: 400px;
-    background-color: #111;
-    padding: 2rem;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-}
-
 .profile-container form label,
+.auth-container form label,
+.signup-wrapper form label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0.15rem;
+}
+
 .profile-container form input,
 .profile-container form textarea,
-.profile-container form button {
-    margin-bottom: 0.5rem;
-}
-
-.profile-container form label {
-    font-size: 0.85rem;
-    color: #ccc;
-}
-
-.profile-container form input,
-.profile-container form textarea {
-    padding: 0.45rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #333;
-    background-color: #222;
-    color: #fff;
+.auth-container form input,
+.auth-container form textarea,
+.signup-wrapper form input,
+.signup-wrapper form textarea {
+    padding: 0.65rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #333;
     font-size: 0.95rem;
     width: 100%;
+    box-sizing: border-box;
 }
 
-.profile-container form input::placeholder,
-.profile-container form textarea::placeholder {
-    color: #888;
-}
-
-.profile-container form button {
-    padding: 0.45rem;
-    background-color: #444;
+.profile-container form button,
+.auth-container form button,
+.signup-wrapper form button {
+    padding: 0.7rem;
+    background-color: #1e90ff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     color: #fff;
     font-size: 0.95rem;
     cursor: pointer;
     transition: background 0.3s;
+    width: 100%;
 }
 
-.profile-container form button:hover {
-    background-color: #666;
+.profile-container form button:hover,
+.auth-container form button:hover,
+.signup-wrapper form button:hover {
+    background-color: #0d5ea8;
 }
 
 /* Ukrycie help_text w profile */
 .profile-container .helptext,
-.profile-container form .helptext {
+.profile-container form .helptext,
+.auth-container .helptext,
+.signup-wrapper .helptext {
     display: none;
 }
 
-/* REJESTRACJA / LOGOWANIE */
-.auth-wrapper, .signup-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 80px 1rem 60px 1rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.auth-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    max-width: 400px;
-}
-
-.auth-container h2 {
-    font-size: 1.8rem;
-    text-align: center;
-}
-
-.auth-container p {
-    font-size: 1rem;
-    text-align: center;
-}
-
-.auth-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background-color: #111;
-    padding: 1.5rem;
-    border-radius: 8px;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-    width: 100%;
-}
-
-.auth-container form label,
-.auth-container form input,
-.auth-container form textarea,
-.auth-container form button {
-    margin-bottom: 0.5rem;
-}
-
-.auth-container form input,
-.auth-container form textarea {
-    padding: 0.45rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #333;
-    background-color: #222;
-    color: #fff;
-    font-size: 0.95rem;
-    width: 100%;
-}
-
-.auth-container form button {
-    padding: 0.45rem;
-    background-color: #444;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.auth-container form button:hover {
-    background-color: #666;
-}
-
+/* ========================= */
 /* KOMUNIKATY */
 .messages {
     width: 95%;
@@ -356,36 +266,100 @@ footer {
 }
 
 .messages div[class*="success"] {
-    background-color: #0a0;
+    background-color: #28a745;
     color: #fff;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 6px;
     margin-bottom: 0.5rem;
 }
 
 .messages div[class*="error"] {
-    background-color: #a00;
+    background-color: #dc3545;
     color: #fff;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 6px;
     margin-bottom: 0.5rem;
 }
 
-/* DODATKOWE STYLIZACJE PRZYCISKÓW W TABELI */
-.books-row button {
-    background: none;
-    border: none;
-    color: #fff;
-    text-decoration: underline;
-    cursor: pointer;
-    font: inherit;
-    padding: 0;
+/* ========================= */
+/* ABOUT US */
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 2rem 1rem;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-.books-row button:hover {
-    color: #00aaff;
+/* NagĹĂłwki w jednej linii */
+.about-us-container h2,
+.about-us-container h3 {
+    display: inline;
+    margin: 0 0.3rem;
 }
 
+.about-us-container h2 {
+    font-size: 2rem;
+    color: #222;
+}
+
+.about-us-container h3 {
+    font-size: 1.5rem;
+    color: #1e90ff;
+}
+
+.about-us-container p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+/* ========================= */
+/* RESPONSYWNOĹÄ FORMULARZY I STRONY */
+@media (max-width: 500px) {
+    .profile-container form,
+    .auth-container form,
+    .signup-wrapper form {
+        padding: 1rem;
+    }
+
+    .books-header, .books-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .col {
+        width: 100%;
+    }
+
+    .main-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .library-hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-us-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-us-container h3 {
+        font-size: 1.3rem;
+    }
+
+    .about-us-container p {
+        font-size: 1rem;
+    }
+}
+
+/* ========================= */
+/* DODATKOWE */
 body.signup-page footer {
-    margin-top: -3rem; /* lub większa wartość, np. -5rem */
+    margin-top: -2rem;
 }

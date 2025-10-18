@@ -1,15 +1,19 @@
 {% extends "online_library/base.html" %}
+{% load i18n %}
 {% block content %}
 
 <body class="signup-page">
 <div class="auth-wrapper signup-wrapper">
     <div class="auth-container">
-        <h2>Sign Up</h2>
-        <p class="text-muted">Fill in the form to create an account.</p>
+        <h2>{% trans "Sign Up" %}</h2>
+
+      {% blocktrans trimmed %}
+      Fill in the form to create an account.
+      {% endblocktrans %}
         <form method="post">
           {% csrf_token %}
           {{ form.as_p }}
-          <button type="submit">Register</button>
+          <button type="submit">{% trans "Register" %}</button>
         </form>
     </div>
 </div>

@@ -10,7 +10,7 @@ from django.conf import settings
 
 def books_library(request):
     books = Book.objects.all()
-    logger.info(f"Użytkownik {request.user.username} odwiedził strone 'Library' ")
+    # logger.info(f"Użytkownik {request.user.username} odwiedził strone 'Library' ")
     return render(request, 'online_library/books_library.html', {'books': books})
 
 

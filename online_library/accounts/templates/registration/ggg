@@ -1,0 +1,28 @@
+{% extends "online_library/base.html" %}
+{% load i18n %}
+
+{% block content %}
+<body class="signup-page">
+  <div class="auth-wrapper signup-wrapper">
+    <div class="auth-container">
+      <h2>{% trans "Sign Up" %}</h2>
+
+      {% blocktrans trimmed %}
+      Fill in the form to create an account.
+      {% endblocktrans %}
+
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {# Jeśli chcesz, żeby labelki były renderowane ręcznie, użyj poniższego wzoru:
+           <div>
+             <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+             {{ form.username }}
+           </div>
+           Ale `{{ form.as_p }}` też działa i używa przetłumaczonych labeli z forms.py. #}
+        {{ form.as_p }}
+        <button type="submit">{% trans "Register" %}</button>
+      </form>
+    </div>
+  </div>
+</body>
+{% endblock %}

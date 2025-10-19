@@ -124,7 +124,7 @@ msgid ""
 "this online rental platform to make it easy for everyone to discover and "
 "enjoy great books."
 msgstr ""
-"<strong>%(team)s</strong> - un grupo de entusiastas de los libros y la "
+"<strong>%(team)s</strong> Un grupo de entusiastas de los libros y la "
 "tecnología. Creamos esta plataforma de alquiler en línea para que todos "
 "puedan descubrir y disfrutar de excelentes libros."
 

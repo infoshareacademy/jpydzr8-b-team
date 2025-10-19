@@ -1,6 +1,5 @@
 {% extends 'online_library/base.html' %}
 {% load i18n %}
-
 {% block content %}
 <div class="library-hero">
   <h2>{% trans "Library" %}</h2>
@@ -50,7 +49,7 @@
                     <span>{% trans "Not available" %}</span>
                 {% endif %}
             {% else %}
-                <span>{% trans "Sign in to borrow books" %}</span>
+                <a href="{% url 'accounts:login' %}">{% trans "Sign In" %}</a>
             {% endif %}
         </span>
     </div>

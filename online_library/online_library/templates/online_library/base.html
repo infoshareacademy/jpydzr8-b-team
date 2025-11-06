@@ -29,12 +29,57 @@
       <div class="nav-left">
         <a href="{% url 'online_library:main' %}" class="footer-link">{% trans "Main-page" %}</a>
         <a href="{% url 'catalog:books_library' %}" class="footer-link">{% trans "Library" %}</a>
+        <a href="{% url 'online_library:searcher' %}" class="footer-link">{% trans "Search" %}</a>
         <a href="{% url 'online_library:about_us' %}" class="footer-link">{% trans "About-us" %}</a>
       </div>
 
       <div class="nav-right">
         {# PRZENIESIONY PRZEŁĄCZNIK JĘZYKÓW: obok linków logowania #}
-        <div class="lang-switcher" aria-label="{% trans 'Language switcher' %}">
+{#        <div class="lang-switcher" aria-label="{% trans 'Language switcher' %}">#}
+{#          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}#}
+{#            <input name="next" type="hidden" value="{{ request.get_full_path }}">#}
+{#            <input name="language" type="hidden" value="en">#}
+{#            <button type="submit" title="{% trans 'English' %}">#}
+{#              <img src="{% static 'images/flags/en.svg' %}" alt="EN">#}
+{#            </button>#}
+{#          </form>#}
+{##}
+{#          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}#}
+{#            <input name="next" type="hidden" value="{{ request.get_full_path }}">#}
+{#            <input name="language" type="hidden" value="de">#}
+{#            <button type="submit" title="{% trans 'Deutsch' %}">#}
+{#              <img src="{% static 'images/flags/de.svg' %}" alt="DE">#}
+{#            </button>#}
+{#          </form>#}
+{##}
+{#          <form action="{% url 'set_language' %}" method="post">{% csrf_token %}#}
+{#            <input name="next" type="hidden" value="{{ request.get_full_path }}">#}
+{#            <input name="language" type="hidden" value="es">#}
+{#            <button type="submit" title="{% trans 'Español' %}">#}
+{#              <img src="{% static 'images/flags/es.svg' %}" alt="ES">#}
+{#            </button>#}
+{#          </form>#}
+{#        </div>#}
+
+        {# auth links #}
+        {% if user.is_authenticated %}
+          <a href="{% url 'catalog:my_books' %}" class="footer-link">{% trans "My Books" %}</a>
+          <a href="{% url 'accounts:profile' %}" class="footer-link">{% trans "Profile" %}</a>
+          {% if user.is_superuser %}
+              <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link">{% trans "Reports" %}</a>
+              <a href="{% url 'catalog:view_logs' %}" class="footer-link">{% trans "Logs" %}</a>
+          {% endif %}
+          <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit" class="footer-link">{% trans "Sign Out" %}</button>
+          </form>
+        {% else %}
+          <a href="{% url 'accounts:login' %}" class="footer-link">{% trans "Sign In" %}</a>
+          <a href="{% url 'accounts:register' %}" class="footer-link">{% trans "Sign Up" %}</a>
+        {% endif %}
+
+      <div class="lang-switcher" aria-label="{% trans 'Language switcher' %}">
+          <label class="pipe">  </label>
           <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
             <input name="next" type="hidden" value="{{ request.get_full_path }}">
             <input name="language" type="hidden" value="en">
@@ -60,22 +105,6 @@
           </form>
         </div>
 
-        {# auth links #}
-        {% if user.is_authenticated %}
-          <a href="{% url 'catalog:my_books' %}" class="footer-link">{% trans "My Books" %}</a>
-          <a href="{% url 'accounts:profile' %}" class="footer-link">{% trans "Profile" %}</a>
-          {% if user.is_superuser %}
-              <a href="{% url 'catalog:borrowed_users_report' %}" class="footer-link">{% trans "Reports" %}</a>
-              <a href="{% url 'catalog:view_logs' %}" class="footer-link">{% trans "Logs" %}</a>
-          {% endif %}
-          <form action="{% url 'accounts:logout' %}" method="post" class="logout-form" style="display:inline;">
-            {% csrf_token %}
-            <button type="submit" class="footer-link">{% trans "Sign Out" %}</button>
-          </form>
-        {% else %}
-          <a href="{% url 'accounts:login' %}" class="footer-link">{% trans "Sign In" %}</a>
-          <a href="{% url 'accounts:register' %}" class="footer-link">{% trans "Sign Up" %}</a>
-        {% endif %}
       </div>
     </div>
   </header>

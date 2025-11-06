@@ -1,0 +1,143 @@
+{% extends "online_library/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+
+    <div class="library-hero">
+        <h2>{% trans 'The easy way' %}</h2>
+    </div>
+
+    <div class="search-container">
+        <form class="search-form" action="#" method="GET">
+            <div class="frm-buttons">
+
+                <input class="search-input"
+                       value="{{ query }}"
+                       size="55"
+                       tabindex="1"
+                       type="text"
+                       name="q"
+                       placeholder="{% trans 'phrase' %}">
+
+                <input class="search-button"
+                       tabindex="2"
+                       type="submit"
+                       value="{% trans 'Search' %}">
+            </div>
+
+            <div class="frm-options">
+
+                <label class="radio-caption" id="title">
+                    <input type="radio"
+                        class="radio-button"
+                        name="optselect"
+                        value="name"
+                        {% if filter_value == 'name' %}checked{% endif %}
+                        onchange="this.form.submit()">
+                    {% trans "By title"  %}
+                </label>
+
+                <label class="radio-caption" id="author">
+                    <input type="radio"
+                        class="radio-button"
+                        name="optselect"
+                        value="author"
+                        {% if filter_value == 'author' %}checked{% endif %}
+                        onchange="this.form.submit()">
+                    {% trans "By author" %}
+                </label>
+
+                <label class="label-select" for="category">{% trans "All categories" %} :
+                    <select class="dropdown-select"
+                        name="category"
+                        id="category"
+                        onchange="this.form.submit()">
+{#                        {% for item in categories %}#}
+{#                            <option value="{{ item }}" {% if selected_category == item %}selected{% endif %}>#}
+{#                                {{ item }}#}
+{#                            </option>#}
+{#                        {% endfor %}#}
+                        {% for i, name in categories %}
+                            <option value="{{ i }}" {% if selected_category == i %}selected{% endif %}>
+                                {{ name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <script>
+                // Nasłuchuje zmian w Dropdown i Radio-options
+                // Po zmianie w dropdown, przyciski opcji będę odchaczone checked:False
+                // Po aktywacji radio, lista zostanie ustawiona na index = 0
+                document.addEventListener("DOMContentLoaded", function() {
+                    const categorySelect = document.getElementById("category");
+                    const radios = document.querySelectorAll('input[name="optselect"]');
+
+                    categorySelect.addEventListener("change", function() {
+                        radios.forEach(r => r.checked = false);
+                        this.form.submit();  // automatyczne odświeżenie po zmianie kategorii
+                    });
+
+                    radios.forEach(radio => {
+                        radio.addEventListener("change", function() {
+                            categorySelect.selectIndex = 0;
+                            this.form.submit();
+                        });
+                    });
+                });
+                </script>
+
+            </div>
+        </form>
+    </div>
+
+{#    {% if messages %}#}
+{#        <div class="messages">#}
+{#            {% for message in messages %}#}
+{#                <div class="{{ message.tags }}">{{ message }}</div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    {% endif %}#}
+
+    {% if results %}
+
+        <div class="books-table">
+            <div class="books-header">
+                <span class="col name">Name</span>
+                <span class="col author">Author(s)</span>
+                <span class="col category">Category</span>
+                <span class="col publisher">Publisher</span>
+                <span class="col pages">Pages</span>
+                <span class="col available">Available</span>
+                <span class="col action">Borrow</span>
+            </div>
+
+            {% for book in results %}
+            <div class="books-row">
+                <span class="col name">{{ book.name }}</span>
+                <span class="col author">{% for author in book.authors.all %}{{ author.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</span>
+                <span class="col category">{% trans book.category %}</span>
+                <span class="col publisher">{{ book.publisher.name }}</span>
+                <span class="col pages">{{ book.pages }}</span>
+                <span class="col available">{{ book.available_copies }}</span>
+                <span class="col action">
+                    {% if user.is_authenticated %}
+                        {% if book.available_copies > 0 %}
+                            <a href="{% url 'catalog:borrow_book' book.id %}">Borrow</a>
+                        {% else %}
+                            <span>Not available</span>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'accounts:login'%}">Sign in</a>
+                    {% endif %}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+
+    {% elif query %}
+        <p class="negative">{% trans 'Check spelling' %} - {% trans 'no results for' %} "{{ query }}".</p>
+    {% endif %}
+
+{% endblock %}

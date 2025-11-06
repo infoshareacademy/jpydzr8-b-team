@@ -27,6 +27,7 @@ class Book(models.Model):
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     authors = models.ManyToManyField(Author)
     available_copies = models.PositiveIntegerField(default=1)  # Liczba dostępnych egzemplarzy
+    category = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.name

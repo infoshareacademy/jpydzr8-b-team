@@ -117,6 +117,7 @@ class Command(BaseCommand):
             publisher = random.choice(publishers)
             pubdate = random_pubdate()
             available_copies = random.randint(1, 10)
+            category = random.choice(['novel','drama','comedy','romance','diary','science fiction','fantasy'])
             books.append(Book(
                 name=t,
                 pages=pages,
@@ -124,7 +125,8 @@ class Command(BaseCommand):
                 rating=rating,
                 publisher=publisher,
                 pubdate=pubdate,
-                available_copies=available_copies
+                available_copies=available_copies,
+                category=category
             ))
 
         Book.objects.bulk_create(books)

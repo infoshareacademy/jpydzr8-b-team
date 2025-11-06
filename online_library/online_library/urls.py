@@ -11,4 +11,6 @@ urlpatterns = [
     path('books/', views.books_library, name='books_library'),
     #strona about_us
     path('about/', views.about_us, name='about_us'),
+    # wyszukiwarka
+    path('search/', views.searcher, name='searcher'),
 ]

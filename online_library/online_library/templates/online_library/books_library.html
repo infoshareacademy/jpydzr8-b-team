@@ -1,5 +1,7 @@
 {% extends 'online_library/base.html' %}
+
 {% load i18n %}
+
 {% block content %}
 <div class="library-hero">
   <h2>{% trans "Library" %}</h2>
@@ -18,6 +20,7 @@
     <div class="books-header">
         <span class="col name">{% trans "Name" %}</span>
         <span class="col author">{% trans "Author(s)" %}</span>
+        <span class="col category">{% trans "Category" %}</span>
         <span class="col publisher">{% trans "Publisher" %}</span>
         <span class="col pages">{% trans "Pages" %}</span>
         <span class="col available">{% trans "Available" %}</span>
@@ -38,6 +41,7 @@
                 {{ author.name }}{% if not forloop.last %}, {% endif %}
             {% endfor %}
         </span>
+        <span class="col category">{% trans book.category %}</span>
         <span class="col publisher">{{ book.publisher.name }}</span>
         <span class="col pages">{{ book.pages }}</span>
         <span class="col available">{{ book.available_copies }}</span>
@@ -49,7 +53,7 @@
                     <span>{% trans "Not available" %}</span>
                 {% endif %}
             {% else %}
-                <a href="{% url 'accounts:login' %}">{% trans "Sign In" %}</a>
+                <a href="{% url 'accounts:login'%}">Sign in</a>
             {% endif %}
         </span>
     </div>

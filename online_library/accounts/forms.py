@@ -1,31 +1,19 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
 from .models import UserDetails
-from django.core.exceptions import ValidationError
 
 class MyRegisterForm(UserCreationForm):
-    username = forms.CharField(max_length=25, required=True, label=_("Username"))
-    first_name = forms.CharField(max_length=25, required=True, label=_("First name"))
-    last_name = forms.CharField(max_length=25, required=True, label=_("Last name"))
-    email = forms.EmailField(max_length=50, required=True, label=_("Email address"))
-    password1 = forms.CharField(
-        label=_('Password'),
-        widget=forms.PasswordInput,
-        help_text=_("Password must be at least %(min_length)s characters.")  # example
-    )
-    password2 = forms.CharField(label=_('Password confirmation'), widget=forms.PasswordInput)
+    username = forms.CharField(max_length=25, required=True)
+    first_name = forms.CharField(max_length=25, required=True)
+    last_name = forms.CharField(max_length=25, required=True)
+    email = forms.EmailField(max_length=50, required=True)
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
 
     class Meta:
         model = User
         fields = ["username", "first_name", "last_name", "email", "password1", "password2"]
-
-    def clean_email(self):
-        email = self.cleaned_data.get("email")
-        if email and User.objects.filter(email=email).exists():
-            raise ValidationError(_("A user with that email already exists."))
-        return email
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -37,22 +25,16 @@ class MyRegisterForm(UserCreationForm):
         return user
 
 class ProfileForm(forms.ModelForm):
-    city = forms.CharField(required=False, label=_("City"))
-    street = forms.CharField(required=False, label=_("Street"))
-    house_number = forms.CharField(required=False, label=_("House number"))
-    postal_code = forms.CharField(required=False, label=_("Postal code"))
-    hobbies = forms.CharField(required=False, widget=forms.Textarea, label=_("Hobbies"))
-    date_of_birth = forms.DateField(required=False, widget=forms.DateInput(attrs={"type": "date"}), label=_("Date of birth"))
+    city = forms.CharField(required=False)
+    street = forms.CharField(required=False)
+    house_number = forms.CharField(required=False)
+    postal_code = forms.CharField(required=False)
+    hobbies = forms.CharField(required=False, widget=forms.Textarea)
+    date_of_birth = forms.DateField(required=False, widget=forms.DateInput(attrs={"type": "date"}))
 
     class Meta:
         model = User
         fields = ["username", "first_name", "last_name", "email"]
-        labels = {
-            "username": _("Username"),
-            "first_name": _("First name"),
-            "last_name": _("Last name"),
-            "email": _("Email address"),
-        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

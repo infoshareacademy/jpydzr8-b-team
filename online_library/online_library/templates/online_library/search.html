@@ -104,13 +104,13 @@
 
         <div class="books-table">
             <div class="books-header">
-                <span class="col name">Name</span>
-                <span class="col author">Author(s)</span>
-                <span class="col category">Category</span>
-                <span class="col publisher">Publisher</span>
-                <span class="col pages">Pages</span>
-                <span class="col available">Available</span>
-                <span class="col action">Borrow</span>
+                <span class="col name">{% trans "Name" %}</span>
+                <span class="col author">{% trans "Author(s)" %}</span>
+                <span class="col category">{% trans "Category" %}</span>
+                <span class="col publisher">{% trans "Publisher" %}</span>
+                <span class="col pages">{% trans "Pages" %}</span>
+                <span class="col available">{% trans "Available" %}</span>
+                <span class="col action">{% trans "Action" %}</span>
             </div>
 
             {% for book in results %}
@@ -124,7 +124,7 @@
                 <span class="col action">
                     {% if user.is_authenticated %}
                         {% if book.available_copies > 0 %}
-                            <a href="{% url 'catalog:borrow_book' book.id %}">Borrow</a>
+                            <a href="{% url 'catalog:borrow_book' book.id %}">{% trans "Borrow" %}</a>
                         {% else %}
                             <span>Not available</span>
                         {% endif %}

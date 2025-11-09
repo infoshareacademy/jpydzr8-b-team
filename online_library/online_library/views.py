@@ -60,7 +60,7 @@ def searcher(request):
 
     if query:
         if filter_value == 'name':
-            books = books.filter(name__istartswith=query)
+            books = books.filter(name__icontains=query)
         elif filter_value == 'author':
             books = books.filter(authors__name__icontains=query)
         elif selected_category:
